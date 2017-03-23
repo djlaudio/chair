@@ -1,0 +1,31 @@
+<?php
+
+
+$mensaje=($_POST["tele1"]);
+$numero=($_POST["texto"]);
+
+
+envioSms( $mensaje, $numero);
+
+function envioSms($destinatario, $texto)
+
+{
+
+$subject=str_replace("-","",rtrim($destinatario));
+$to="mgmagemg@gmail.com";
+
+
+$headers = "From: consultas@djlproductions.com" . "\r\n" .
+"CC: celdjl@gmail.com";
+
+mail($to,$subject,$texto,$headers);
+
+echo ("Sms enviado");
+
+echo "<script>window.history.back()</script>";
+echo "<script>window.history.back()</script>";
+
+}
+
+
+?>

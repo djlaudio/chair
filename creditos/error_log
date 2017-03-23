@@ -1,0 +1,10 @@
+[02-May-2016 03:16:28 UTC] PHP Fatal error:  Class 'AbonoData' not found in /home/newserver2016/public_html/marcasgenuinas.com/creditos/adminPanel.php on line 603
+[18-May-2016 20:07:35 UTC] PHP Fatal error:  Call to undefined function mysqli_result() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/registroCredito.php on line 25
+[18-May-2016 20:08:53 UTC] PHP Fatal error:  Call to undefined function mysqli_result() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/registroCredito.php on line 25
+[18-May-2016 20:11:53 UTC] PHP Fatal error:  Call to undefined function mysqli_result() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/registroCredito.php on line 25
+[30-May-2016 13:35:27 UTC] PHP Fatal error:  Function name must be a string in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/adminPanel.php on line 525
+[30-May-2016 13:36:31 UTC] PHP Fatal error:  Call to undefined function SELECT SUM( a.cantidadAbono) FROM abono a WHERE a.boxed =0() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/adminPanel.php on line 525
+[30-May-2016 13:38:02 UTC] PHP Fatal error:  Call to undefined function SELECT SUM( a.cantidadAbono) FROM abono a WHERE a.boxed =0() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/adminPanel.php on line 525
+[30-May-2016 21:45:43 UTC] PHP Fatal error:  Call to undefined function totalDePagosUnboxed() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/adminPanel.php on line 550
+[30-May-2016 21:47:29 UTC] PHP Fatal error:  Call to undefined function totalDePagosUnboxed() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/adminPanel.php on line 551
+[31-May-2016 21:08:47 UTC] PHP Fatal error:  Call to undefined function caja() in /home/newserver2016/public_html/marcasgenuinas.com/inventario/creditos/llamadoACaja.php on line 36
