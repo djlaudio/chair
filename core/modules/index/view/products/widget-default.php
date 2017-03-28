@@ -75,6 +75,7 @@ if($px<=$npaginas):
 		<th>Precio Salida</th>
 		<th>Categoria</th>
 		<th>Minima</th>
+		<th>Cantidad/th>
 		<th>Activo</th>
 		<th></th>
 	</thead>
@@ -91,6 +92,7 @@ if($px<=$npaginas):
 		<td>₡ <?php echo number_format($product->price_out,2,'.',','); ?></td>
 		<td><?php if($product->category_id!=null){echo $product->getCategory()->name;}else{ echo "<center>----</center>"; }  ?></td>
 		<td><?php echo $product->inventary_min; ?></td>
+		<td><?php echo $product->quantity; ?></td>
 		<td><?php if($product->is_active): ?><i class="fa fa-check"></i><?php endif;?></td>
 		
 
