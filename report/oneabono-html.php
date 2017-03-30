@@ -27,21 +27,21 @@ $c;
 $d;
     switch ($sell->termino_id) {
         case 135:
-            $a = "Contado";
+            $a = "Contado (Factura cancelada)";
             break;
         case 137:
-            $a = "Credito 30 dias";
+            $a = "Crédito 30 días";
             break;
         case 139:
             $a = "Apartado";
             break;
 
             case 141:
-            $a = "Credito 45 dias";
+            $a = "Crédito 45 dias";
             break;
 
              case 143:
-            $a = "Credito 60 dias";
+            $a = "Crédito 60 dias";
             break;
 
 
@@ -85,8 +85,8 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
         padding:30px;
         border:1px solid #eee;
         box-shadow:0 0 10px rgba(0, 0, 0, .15);
-        font-size:16px;
-        line-height:24px;
+        font-size:12px;
+        line-height:16px;
         font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color:#555;
     }
@@ -102,7 +102,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
         vertical-align:top;
     }
 
-    .invoice-box table tr td:nth-child(2){
+    .invoice-box table tr td:nth-child(5){
         text-align:right;
     }
 
@@ -138,7 +138,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
         border-bottom:none;
     }
 
-    .invoice-box table tr.total td:nth-child(2){
+    .invoice-box table tr.total td:nth-child(5){
         border-top:2px solid #eee;
         font-weight:bold;
     }
@@ -178,16 +178,33 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
              <tr class="top">
-                <td colspan="2">
+                <td colspan="5">
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="Untitled.png" style="width:100%; max-width:300px;">
+                                <a href="//pdfcrowd.com/url_to_pdf/"><img src="logo-Fastness.png" style="width:100%; max-width:300px;"></a>
                             </td>
+
+                             <td>
+
+                           </td>
+
+                           <td>
+
+                     </td>
+
+                      <td>
+
+                     </td>
 
                             <td>
                                <font size="1"> Factura No. </font> <font size="20"> <?php echo($sell->id2);  ?></font> <br>
-                                29 de diciembre del 2016<br>
+                                <?php
+
+date_default_timezone_set('America/Costa_Rica');
+echo date("d/m/Y") ;
+
+?><br>
 
                             </td>
                         </tr>
@@ -196,7 +213,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
             </tr>
 
             <tr class="information">
-                <td colspan="2">
+                <td colspan="5">
                     <table>
                         <tr>
                             <td>
@@ -208,11 +225,11 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
 <?php if($sell->iv==1){?>
-             Jorge Chacon Rojas<br>
-                                Apartado Postal Alajuela San Ramon<br>
+          <font size="1">   Jorge Chacón Rojas<br>
+                                Apartado Postal Alajuela San Ramón<br>
                                 300 N de Iglesia El Tremedal<br>
                                 Tel: (506)8324-9197 / (506)2445-6235 <br>
-                                Ced Juridica: 20344041621<?php
+                                Ced Jurídica: 20344041621  </font><?php
             }?>
 
 
@@ -221,13 +238,27 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
                             </td>
 
+                             <td>
+
+                </td>
+
+                 <td>
+
+                </td>
+
+                <td>
+
+                </td>
+
+
+
                             <td>
 
                   <?php if($sell->person_id!=null){
 
-                    echo($client->name." ".$client->lastname);   }?>
+                    echo($client->name." ".$client->lastname." - ".$client->nameBusiness);   }?>
 
-                    <br><font size="1">CEDULA</font>
+                    <br>
 
                     <?php if($sell->person_id!=null){
 
@@ -242,7 +273,9 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
         echo($a);
-    ?><br>
+    ?><br><br>
+
+    <font size="5">ORIGINAL </font>
 
 
                             </td>
@@ -263,6 +296,20 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
                 <td>
 
                 </td>
+
+                <td>
+
+                </td>
+
+                <td>
+
+                </td>
+
+                <td>
+
+                </td>
+
+
             </tr>
 
             <tr class="details">
@@ -283,12 +330,23 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
 
             <tr class="heading">
-                <td>
-                    Descripcion
+
+            <td>
+                    Cod
                 </td>
 
                 <td>
+                    Cant
+                </td>
+
+                <td>
+                    Descripcion
+                </td>
+ <td>
                     Precio
+                </td>
+                <td>
+                   Total
                 </td>
             </tr>
 
@@ -308,13 +366,13 @@ echo("<tr>");
                         $descuento=$sell->discount;
                         $Total=$sell->total - $sell->discount;
 
-                    //echo("<td>$product->id</td>");
-                    //  echo("<td>$operation->q</td>");
+                    echo("<td>$product->barcode</td>");
+                     echo("<td>$operation->q</td>");
 
 
                       echo("<td>$product->name</td>");
 
-                     //echo("<td>$product->price_out</td>");
+                     echo("<td>$product->price_out</td>");
                         $precioLinea=$operation->q*$product->price_out;
                     echo("<td>$precioLinea</td>");
 
@@ -348,43 +406,53 @@ echo("</tr>");
 
 
             <tr class="total">
-                <td></td>
+                <td></td><td></td><td></td><td></td>
 
                 <td>
-                   Descuento: <?php echo($descuento);  ?> colones
+                   Descuento: <?php echo number_format($descuento,0,'.',',');  ?> colones
                 </td>
             </tr>
 
             <?php if($sell->iv==1){?>
             <tr class="total">
-                <td></td>
+                <td></td><td></td><td></td><td></td>
 
                 <td>
-                   IV: <?php echo($impuestoVentas);  ?>
+                   IV: <?php echo number_format($impuestoVentas,0,'.',',');  ?>
                 </td>
             </tr><?php
             }?>
             <tr class="total">
-                <td></td>
+                <td></td><td></td><td></td><td></td>
 
                 <td>
-                   Total: <?php echo($Total+$impuestoVentas);  ?> colones
+
+               Total:  <?php echo number_format(($Total+$impuestoVentas),0,'.',',');  ?> colones
+                  
                 </td>
             </tr>
         </table>
         <BR>
           <BR>
-          <font size="1"><Center> Para efectos del articulo 19 y 20 de la Ley de Notificaciones Judiciales se señala como domicilio contractual del deudor el indicado en el encabezado. </CENTER>
-          <Center>  Esta factura es un titulo ejecutivo contra el comprador por la suma en descubierto a tenor de lo dispuesto en el articulo 460 del codigo de comercio </CENTER>
+          <?php if($sell->iv==1){?>
+          <font size="1px"> Para efectos del artículo 19 y 20 de la Ley de Notificaciones Judiciales se señala como domicilio contractual del deudor el indicado en el encabezado. Esta factura es un título ejecutivo contra el comprador por la suma en descubierto a tenor de lo dispuesto en el artículo 460 del código de comercio.
+          <?php
+            }?>
            <BR>
             <BR></font>
 
-          __________________________________________________       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                 _______________________________ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<BR>
-            RECIBIDO CONFORME  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NOMBRE Y FIRMA        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;                       CEDULA <BR>
-            <p style="text-align:right"><font size="20"> <?php echo($sell->id2);  ?></font> </p>
+          ____________________________________________       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                 ______________________ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<BR>
+            RECIBIDO CONFORME  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NOMBRE Y FIRMA        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;                    CEDULA <BR>
+            <p style="text-align:right"><font size="20"><?php echo($sell->id2);  ?></a> </font> </p>
             <BR>
-          <font size="1"><Center>  Autorizado mediante resolucion 1197 del 3/9/97 D.G.T.D </CENTER></font>
+            <?php if($sell->iv==1){?>
+         <font size="1"><Center>  Autorizado mediante resolución 1197 del 3/9/97 D.G.T.D </CENTER></font><?php
+            }?>
+          
     </div>
+
+
+
 
 
 </body>
