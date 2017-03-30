@@ -5,7 +5,7 @@
             $pass = '';
             $html = "";
            
-            $conn = mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+            $conn = mysqli_connect("localhost","wtjjventas2018","wtjjventas2018","wtjjventas2016");
         
             $select=mysqli_query($conn, "select * from abono where idCreditoAbono= ".$asd);
 

@@ -1,4 +1,7 @@
 <?php
+
+include 'connect_db.php';
+
 class SellData {
   public static $tablename = "sell";
 
@@ -24,12 +27,8 @@ class SellData {
 
   public function add(){
 
-    $link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+   
 
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-}
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
@@ -66,13 +65,7 @@ echo $max_id;
 
 public function addCreditos(){
 
-// Create connection
-$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
 
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-}
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -91,13 +84,7 @@ echo $max_id;
 
  public function addSellNoIv(){
 
- // Create connection
- $link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
-
- // Check connection
- if (mysqli_connect_errno()) {
-   echo "Error al conectar con la base datos: " . mysqli_connect_error();
- }
+ 
 
  $max = "SELECT MAX(idSellNoIV) as max_id FROM sell_no_iv";
  $max1 =  mysqli_query($link, $max);
@@ -118,12 +105,7 @@ echo $max_id;
 public function addCreditos_with_client()
 {
 
-$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
 
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-}
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -146,12 +128,7 @@ echo $max_id;
 
   public function add_with_client(){
 
- $link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
-
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-}
+ 
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);

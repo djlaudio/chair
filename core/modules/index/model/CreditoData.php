@@ -1,4 +1,7 @@
 <?php
+
+include 'connect_db.php';
+
 class CreditoData {
 	public static $tablename = "credito";
 
@@ -24,13 +27,7 @@ class CreditoData {
 
 	public function addCreditos(){
 
-	// Create connection
-	$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
-
-	// Check connection
-	if (mysqli_connect_errno()) {
-	  echo "Error al conectar con la base datos: " . mysqli_connect_error();
-	}
+	
 
 	$max = "SELECT MAX(numFactura) as max_id FROM credito";
 	$max1 =  mysqli_query($link, $max);
