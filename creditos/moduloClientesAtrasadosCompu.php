@@ -1015,6 +1015,8 @@ $totalCuotasAtrasadas=0;
 
 <?php include('connect_db.php');
 include('consultasMorosos.php');
+include('consultasMorososFastness.php');
+
 
 $dayNum = date("w");
 $cuotas=30;
@@ -1026,7 +1028,6 @@ $fecha2=9;
 
                 
 
-                $query = mysqli_query($link,"$ConsultaDeMorososYMasPorId");
                 while($row = mysqli_fetch_assoc($query)){?>
 
 <tr>
