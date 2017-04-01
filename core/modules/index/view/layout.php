@@ -53,7 +53,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
           <li><a href="index.php?view=home"><i class="fa fa-home"></i> Inicio</a></li>
           <li><a href="index.php?view=sell"><i class="fa fa-usd"></i> Vender</a></li>
           <li><a href="index.php?view=sells"><i class="fa fa-shopping-cart"></i> Ventas</a></li>
-          <li><a href="index.php?view=abonos"><i class="fa fa-shopping-cart"></i> Abonos</a></li>
+         <!--  <li><a href="index.php?view=abono"><i class="fa fa-shopping-cart"></i> Abonos</a></li> -->
           <li><a href="index.php?view=box"><i class="fa fa-archive"></i> Caja</a></li>
 		   <li><a href="creditos/"><i class="service-icon fa fa-envelope"></i>&nbsp;Registro de abonos</a></li>
           <li><a href="index.php?view=products"><i class="fa fa-glass"></i> Productos</a></li>
