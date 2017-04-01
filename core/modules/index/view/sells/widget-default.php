@@ -19,6 +19,7 @@ if(count($products)>0){
 	<thead>
 		<th></th>
 		<th>Producto</th>
+		<th>Cliente</th>
 		<th>Total</th>
 		<th>Fecha</th>
 		<th>Numero</th>
@@ -36,6 +37,16 @@ if(count($products)>0){
 $operations = OperationData::getAllProductsBySellId($sell->id);
 echo count($operations);
 ?>
+
+
+
+<td>
+
+  <?php if($sell->person_id!=null){
+$client = $sell->getPerson();
+                    echo($client->name." ".$client->lastname ." - ".$client->nameBusiness );   }?>
+
+</td>
 		<td>
 
 <?php
