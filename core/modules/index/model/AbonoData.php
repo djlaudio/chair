@@ -61,6 +61,18 @@ class AbonoData {
 		return $array;
 	}
 
+
+	public static function getAllByDateOp($start,$end,$op){
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new SellData());
+
+  }
+  public static function getAllByDateBCOp($clientid,$start,$end,$op){
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new SellData());
+
+  }
+
 		public static function getByCredito($idCreditoAbono){
 		$sql = "select * from ".self::$tablename ." where idCreditoAbono=$idCreditoAbono";
 		$query = Executor::doit($sql);

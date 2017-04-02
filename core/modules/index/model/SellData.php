@@ -217,7 +217,7 @@ echo $max_id;
 
   }
   public static function getAllByDateBCOp($clientid,$start,$end,$op){
- $sql = "select * from ".self::$tablename." where date(created_at) >= \"$start\" and date(created_at) <= \"$end\" and client_id=$clientid  and operation_type_id=$op order by created_at desc";
+ $sql = "select * from ".self::$tablename." where date(created_at) >= \"$start\" and date(created_at) <= \"$end\" and person_id=$clientid  and operation_type_id=$op order by created_at desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new SellData());
 
