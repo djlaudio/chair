@@ -1028,6 +1028,7 @@ $fecha2=9;
 
                 
 
+                $query = mysqli_query($link,"$ConsultaDeMorososYMasPorIdFastness");
                 while($row = mysqli_fetch_assoc($query)){?>
 
 <tr>

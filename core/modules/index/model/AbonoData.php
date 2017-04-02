@@ -63,11 +63,13 @@ class AbonoData {
 
 
 	public static function getAllByDateOp($start,$end,$op){
+  $sql = "select * from ".self::$tablename." where date(fechaAbono) >= \"$start\" and date(fechaAbono) <= \"$end\"  order by fechaAbono desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new SellData());
 
   }
   public static function getAllByDateBCOp($clientid,$start,$end,$op){
+ $sql = "select * from ".self::$tablename." where date(fechaAbono) >= \"$start\" and date(fechaAbono) <= \"$end\" and client_id=$clientid  and tipo_pago=$op order by fechaAbono";
     $query = Executor::doit($sql);
     return Model::many($query[0],new SellData());
 

@@ -7,6 +7,7 @@ $clients = PersonData::getClients();
 	<h1>Reportes de Dineros Recibidos</h1>
 
 						<form>
+						<input type="hidden" name="view" value="moneyreports">
 <div class="row">
 <div class="col-md-3">
 
