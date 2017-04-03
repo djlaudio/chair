@@ -82,7 +82,9 @@ $clients = PersonData::getClients();
 			 	<?php $supertotal = 0; ?>
 <table class="table table-bordered">
 	<thead>
+	<th></th>
 		<th>Id</th>
+		<th>Cliente</th>
 		<th>Subtotal</th>
 		<th>Descuento</th>
 		<th>Total</th>
@@ -90,7 +92,14 @@ $clients = PersonData::getClients();
 	</thead>
 <?php foreach($operations as $operation):?>
 	<tr>
-		<td><?php echo $operation->id; ?></td>
+	<td style="width:30px;">
+		<a href="index.php?view=onesell&id=<?php echo $operation->id; ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+		<td><?php echo $operation->id2; ?></td>
+		<td>
+		<?php if($operation->person_id!=null){
+$client = $operation->getPerson();
+                    echo($client->name." ".$client->lastname ." - ".$client->nameBusiness );   }?>
+                    </td>
 		<td>₡ <?php echo number_format($operation->total,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->discount,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->total-$operation->discount,2,'.',','); ?></td>
