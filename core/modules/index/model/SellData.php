@@ -40,12 +40,15 @@ $row = mysqli_fetch_assoc($max1);
 $max_id=$row['max_id'];
 echo "Max id es";
 echo $max_id;
+echo "iv es";
+echo $this->iv;
+
 
 
     $sql = "insert into ".self::$tablename." (total,discount,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, esCompra ";
     $sql .= "value ($this->total,$this->discount,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0,$this->iv ,$max_id+1, $this->esCompra)";
 
-  echo "Valor de iv + 1: " . $max_id + 1;
+  echo "Valor de id + 1 en anadir sin cliente: " . $max_id + 1;
 
     return Executor::doit($sql);
   }
@@ -138,14 +141,15 @@ $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
 $row = mysqli_fetch_assoc($max1);
 $max_id=$row['max_id'];
-echo "Max id es";
+echo "Max id es ";
 echo $max_id;
 
     $sql = "insert into ".self::$tablename." (total,discount,person_id,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2) ";
     $sql .= "value ($this->total,$this->discount,$this->person_id,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv, $max_id+1)";
 
 
-      echo "Valor de iv: " . $this->iv;
+      echo "Valor de iv en anadir con cliente: " . $this->iv;
+      echo "Valor de id + 1 en anadir con cliente: " . $max_id + 1;
 
 
     return Executor::doit($sql);
