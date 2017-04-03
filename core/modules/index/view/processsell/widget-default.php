@@ -100,6 +100,7 @@ $credito->idVendedor = $_SESSION["user_id"];
 $credito->diaPago = $_POST["dia_pago"];
 $credito->saldoActual = $credito ->cantidadCredito;
 $credito->termino_id = $_POST["termino_id"];
+
 $credito->esCompra = 0;
 
 
@@ -134,17 +135,21 @@ $credito  ->idClienteCredito =0;
 
 $credito->idSell= $s[1];
             $credito->add();
-
+            echo ('Credito se anadio, id de termino id a continuacion');
+echo ($sell->termino_id);
 
 			 if($sell->termino_id == 135){
 			 	$abono = new AbonoData();
-				$abono->cantidadAbono = $sell->total;
+			 	// Lo siguiente se hace para copiar cantidadCredito que ya incluye el IV si es necesario.
+				$abono->cantidadAbono = $credito ->cantidadCredito;
 				$abono->tipo_pago = $_POST["tipo_pago"];
 
 
 				$abono->idCreditoAbono = $credito->getLastId();
 
 				$abono->add();
+
+				echo "Se hizo el abono";
 			 }
 
 
