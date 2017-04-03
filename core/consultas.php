@@ -85,7 +85,6 @@ FROM dia d
 INNER JOIN credito ON d.numDia = credito.diaPago
 INNER JOIN cliente ON credito.idClienteCredito = cliente.idPersona
 INNER join person ON cliente.idPersona = person.id 
-WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id='137' and credito.anulada='0' and credito.anulada2='0' and cliente.tipoCliente=2
 order by name";
 
 $ConsultaCreditosPorNombreYAreaTiendaINNERJOINANULADA="SELECT distinct diaPago, credito.idCredito, idClienteCredito, credito.codigoProducto, descrProducto, CONCAT(person.name, cantidadCredito,  ' dia:', d.descrDia,'cuota: ', cuotaCredito,  '# ', credito.numFactura) AS descripcion
