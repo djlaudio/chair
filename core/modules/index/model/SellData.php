@@ -1,12 +1,5 @@
 <?php
-
-
-
 class SellData {
-
-  
-
-  
   public static $tablename = "sell";
 
   public function SellData(){
@@ -31,8 +24,12 @@ class SellData {
 
   public function add(){
 
-   
-require 'connect_db.php';
+    $link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Error al conectar con la base datos: " . mysqli_connect_error();
+}
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
@@ -40,15 +37,12 @@ $row = mysqli_fetch_assoc($max1);
 $max_id=$row['max_id'];
 echo "Max id es";
 echo $max_id;
-echo "iv es";
-echo $this->iv;
-
 
 
     $sql = "insert into ".self::$tablename." (total,discount,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2, esCompra ";
     $sql .= "value ($this->total,$this->discount,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0,$this->iv ,$max_id+1, $this->esCompra)";
 
-  echo "Valor de id + 1 en anadir sin cliente: " . $max_id + 1;
+  echo "Valor de iv + 1: " . $max_id + 1;
 
     return Executor::doit($sql);
   }
@@ -72,7 +66,13 @@ echo $this->iv;
 
 public function addCreditos(){
 
-require 'connect_db.php';
+// Create connection
+$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Error al conectar con la base datos: " . mysqli_connect_error();
+}
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -91,7 +91,13 @@ echo $max_id;
 
  public function addSellNoIv(){
 
- require 'connect_db.php';
+ // Create connection
+ $link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+
+ // Check connection
+ if (mysqli_connect_errno()) {
+   echo "Error al conectar con la base datos: " . mysqli_connect_error();
+ }
 
  $max = "SELECT MAX(idSellNoIV) as max_id FROM sell_no_iv";
  $max1 =  mysqli_query($link, $max);
@@ -112,7 +118,12 @@ echo $max_id;
 public function addCreditos_with_client()
 {
 
-require 'connect_db.php';
+$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Error al conectar con la base datos: " . mysqli_connect_error();
+}
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -135,21 +146,25 @@ echo $max_id;
 
   public function add_with_client(){
 
- require 'connect_db.php';
+ $link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Error al conectar con la base datos: " . mysqli_connect_error();
+}
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
 $row = mysqli_fetch_assoc($max1);
 $max_id=$row['max_id'];
-echo "Max id es ";
+echo "Max id es";
 echo $max_id;
 
     $sql = "insert into ".self::$tablename." (total,discount,person_id,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2) ";
     $sql .= "value ($this->total,$this->discount,$this->person_id,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv, $max_id+1)";
 
 
-      echo "Valor de iv en anadir con cliente: " . $this->iv;
-      echo "Valor de id + 1 en anadir con cliente: " . $max_id + 1;
+      echo "Valor de iv: " . $this->iv;
 
 
     return Executor::doit($sql);
@@ -225,7 +240,7 @@ echo $max_id;
 
   }
   public static function getAllByDateBCOp($clientid,$start,$end,$op){
- $sql = "select * from ".self::$tablename." where date(created_at) >= \"$start\" and date(created_at) <= \"$end\" and person_id=$clientid  and operation_type_id=$op order by created_at desc";
+ $sql = "select * from ".self::$tablename." where date(created_at) >= \"$start\" and date(created_at) <= \"$end\" and client_id=$clientid  and operation_type_id=$op order by created_at desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new SellData());
 

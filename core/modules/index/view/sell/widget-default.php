@@ -72,18 +72,18 @@ $(document).ready(function(){
     });
 });
 
-
+/*
 $(document).ready(function(){
-    $("#percDiscount").on('change', function(){
+    $("#termino_id").on('change', function(){
 
 
 
       $total_ter=$("#total").val();
     
-        if (this.value>"0")
+        if (this.value=="137")
           {
 
-            $discount_ter=$total_ter*this.value/100;
+            $discount_ter=$total_ter/10;
            
             $("#discount").val($discount_ter);
             $("#money").val($total_ter-$discount_ter);
@@ -131,6 +131,7 @@ $total_iv=$("#total").val()- $("#discount").val();
     });
 });
 
+*/
 
 </script>
 
@@ -271,7 +272,7 @@ $clients = PersonData::getClients();
 <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Descuento</label>
     <div class="col-lg-10">
-      <input id="percDiscount" type="number" value="0" min="0" max="20"/><input type="text" name="discount" class="form-control" required value="0"  id="discount" placeholder="Descuento">
+      <input type="text" name="discount" class="form-control" required value="0" id="discount" placeholder="Descuento">
     </div>
   </div>
  <div class="form-group">
