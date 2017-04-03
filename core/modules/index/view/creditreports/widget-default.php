@@ -4,10 +4,10 @@ $clients = PersonData::getClients();
 <section class="content">
 <div class="row">
 	<div class="col-md-12">
-	<h1>Reportes de Dineros Recibidos</h1>
+	<h1>Reportes de Créditos</h1>
 
 						<form>
-						<input type="hidden" name="view" value="moneyreports">
+						<input type="hidden" name="view" value="creditreports">
 <div class="row">
 <div class="col-md-3">
 
@@ -69,10 +69,10 @@ $clients = PersonData::getClients();
 			$operations = array();
 
 			if($_GET["client_id"]==""){
-			$operations = AbonoData::getAllByDateOp($_GET["sd"],$_GET["ed"],2);
+			$operations = CreditoData::getAllCreditByDateOp($_GET["sd"],$_GET["ed"],2);
 			}
 			else{
-			$operations = AbonoData::getAllByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
+			$operations = CreditoData::getAllCreditByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
 			} 
 
 
@@ -82,38 +82,38 @@ $clients = PersonData::getClients();
 			 	<?php $supertotal = 0; ?>
 <table class="table table-bordered">
 	<thead>
-		<th>Factura</th>
+		<th>Id</th>
 		<th>Cliente</th>
-		<th>Dinero</th>
+		<th>Total</th>
 		<th>Saldo</th>
+		
 		<th>Fecha</th>
+		
 	</thead>
 <?php foreach($operations as $operation):?>
 	<tr>
+	<td style="width:30px;">
+		<a href="index.php?view=onesell&id=<?php echo $operation->idSell; ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+		<td><?php if($operation->idSell!=null){
+$sell = $operation->getCreditSell();
+                    echo($sell->id2);   }?></td>
 		<td>
-			
-			<?php if($operation->idCreditoAbono!=null){
-					$credit = $operation->getAbonoCredit();
- 
-                    echo($operation ->id2creditoAbono);   }?>
-
-		</td>
-		<td>
-		<?php if($operation->idCreditoAbono!=null){
-			$sell= $credit ->getCreditSell;
+		<?php if($sell->person_id!=null){
 $client = $sell->getPerson();
                     echo($client->name." ".$client->lastname ." - ".$client->nameBusiness );   }?>
                     </td>
-		<td>₡ <?php echo number_format($operation->cantidadAbono,2,'.',','); ?></td>
-		<td>₡ <?php echo number_format($operation->saldoCredito,2,'.',','); ?></td>
-		<td><?php echo $operation->fechaAbono; ?></td>
+	
+		<td>₡ <?php echo number_format($operation->cantidadCredito,2,'.',','); ?></td>
+		<td>₡ <?php echo number_format($operation->saldoActual,2,'.',','); ?></td>
+		
+		<td><?php echo $operation->fechaCredito; ?></td>
 	</tr>
 <?php
-$supertotal+= ($operation->cantidadAbono);
+$supertotal+= ($operation->saldoActual);
  endforeach; ?>
 
 </table>
-<h1>Total de abonos: ₡ <?php echo number_format($supertotal,2,'.',','); ?></h1>
+<h1>Total de pendientes: ₡ <?php echo number_format($supertotal,2,'.',','); ?></h1>
 
 			 <?php else:
 			 // si no hay operaciones

@@ -5,6 +5,12 @@ include 'connect_db.php';
 class CreditoData {
 	public static $tablename = "credito";
 
+
+
+public function getCreditPerson(){ return CreditoData::getById($this->idClienteCredito);}
+public function getCreditSell(){ return SellData::getById($this->idSell);}
+
+
 	public function add(){
 		$sql = "insert into credito (fechaCredito,cantidadCredito,saldoActual,idVendedor,idClienteCredito,porcComisionVendedor,diaPago,observacion,idSistema, idSell, termino_id, esCompra)";
 		$sql .= "value (NOW(),$this->cantidadCredito,$this->saldoActual,$this->idVendedor, $this->idClienteCredito,0,$this->diaPago,'Factura de Contado',0, $this->idSell, $this->termino_id, $this->esCompra )";
@@ -72,6 +78,25 @@ class CreditoData {
 		}
 		return $array;
 	}
+
+	public static function getById($id){
+     $sql = "select * from ".self::$tablename." where id=$id";
+    $query = Executor::doit($sql);
+    return Model::one($query[0],new CreditoData());
+  }
+
+	public static function getAllCreditByDateOp($start,$end,$op){
+  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and cantidadCredito>montoPagado order by fechaCredito desc";
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new CreditoData());
+
+  }
+  public static function getAllCreditByDateBCOp($clientid,$start,$end,$op){
+ $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and idClienteCredito=$clientid and cantidadCredito>montoPagado order by fechaCredito desc";
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new CreditoData());
+
+  }
 
 	public static function getLastId(){
 		$sql = "select MAX(idCredito) idCredito FROM credito";
