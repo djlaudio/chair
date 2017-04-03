@@ -82,38 +82,26 @@ $clients = PersonData::getClients();
 			 	<?php $supertotal = 0; ?>
 <table class="table table-bordered">
 	<thead>
-		<th>Factura</th>
-		<th>Cliente</th>
-		<th>Dinero</th>
-		<th>Saldo</th>
+		<th>Id</th>
+		<th>Subtotal</th>
+		<th>Descuento</th>
+		<th>Total</th>
 		<th>Fecha</th>
 	</thead>
 <?php foreach($operations as $operation):?>
 	<tr>
-		<td>
-			
-			<?php if($operation->idCreditoAbono!=null){
-					$credit = $operation->getAbonoCredit();
- 
-                    echo($operation ->id2creditoAbono);   }?>
-
-		</td>
-		<td>
-		<?php if($operation->idCreditoAbono!=null){
-			$sell= $credit ->getCreditSell;
-$client = $sell->getPerson();
-                    echo($client->name." ".$client->lastname ." - ".$client->nameBusiness );   }?>
-                    </td>
-		<td>₡ <?php echo number_format($operation->cantidadAbono,2,'.',','); ?></td>
-		<td>₡ <?php echo number_format($operation->saldoCredito,2,'.',','); ?></td>
-		<td><?php echo $operation->fechaAbono; ?></td>
+		<td><?php echo $operation->id; ?></td>
+		<td>₡ <?php echo number_format($operation->total,2,'.',','); ?></td>
+		<td>₡ <?php echo number_format($operation->discount,2,'.',','); ?></td>
+		<td>₡ <?php echo number_format($operation->total-$operation->discount,2,'.',','); ?></td>
+		<td><?php echo $operation->created_at; ?></td>
 	</tr>
 <?php
-$supertotal+= ($operation->cantidadAbono);
+$supertotal+= ($operation->total-$operation->discount);
  endforeach; ?>
 
 </table>
-<h1>Total de abonos: ₡ <?php echo number_format($supertotal,2,'.',','); ?></h1>
+<h1>Total de ventas: ₡ <?php echo number_format($supertotal,2,'.',','); ?></h1>
 
 			 <?php else:
 			 // si no hay operaciones
