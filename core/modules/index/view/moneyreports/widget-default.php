@@ -94,8 +94,8 @@ $clients = PersonData::getClients();
 			
 		<?php if($operation->idCreditoAbono!=null){
 					
- 
-                    echo($operation ->id2creditoAbono);   }?>
+				
+                    echo($operation ->idCreditoAbono);   }?>
 
 		</td>
 		<td>

@@ -21,7 +21,7 @@ class AbonoData {
 	
     public function getUsuario(){ return UsuarioData::getById($this->idCobrador);}
     public function getAbonoCredit(){ return CreditoData::getById($this->idCreditoAbono);}
-    public function getSellAbono(){ return SellData::getById($this->idCreditoAbono);} 
+
 
 
 	public function add(){
@@ -64,13 +64,13 @@ class AbonoData {
 
 
 	public static function getAllByDateOp($start,$end,$op){
-  $sql = "select * from ".self::$tablename." where date(fechaAbono) >= \"$start\" and date(fechaAbono) <= \"$end\"  order by fechaAbono desc";
+  $sql = "select * from ".self::$tablename." where date(fechaAbono) >= \"$start\" and date(fechaAbono) <= \"$end\"  order by idCreditoAbono desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new AbonoData());
 
   }
   public static function getAllByDateBCOp($clientid,$start,$end,$op){
- $sql = "select * from ".self::$tablename." where date(fechaAbono) >= \"$start\" and date(fechaAbono) <= \"$end\" and client_id=$clientid  and tipo_pago=$op order by fechaAbono";
+ $sql = "select * from ".self::$tablename." where date(fechaAbono) >= \"$start\" and date(fechaAbono) <= \"$end\" and client_id=$clientid  and tipo_pago=$op order by idCreditoAbono desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new AbonoData());
 

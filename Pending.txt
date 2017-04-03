@@ -1,0 +1,6 @@
+Ver total del inventario 2 horas
+Ver como manejar anulaciones 2 horas
+No estamos seguros de la validez de los connect db al inicio, tuvimos que incluirlo muchas veces en un file de sell para asegurar no fallas, ya que antes estaba al inicio y no lo reconocia
+Venta no se realiza en ocasiones
+Abonos no muestra id de venta. En estos se podría ver el recibo en lugar de la factura, facilitaría muchas cosas.
+Hacer un pequeño invoice de abono, para ver en los abonos de dinero.
