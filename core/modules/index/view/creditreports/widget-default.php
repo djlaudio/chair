@@ -82,6 +82,7 @@ $clients = PersonData::getClients();
 			 	<?php $supertotal = 0; ?>
 <table class="table table-bordered">
 	<thead>
+	<th> </th>
 		<th>Id</th>
 		<th>Cliente</th>
 		<th>Total</th>

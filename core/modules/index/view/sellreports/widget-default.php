@@ -83,6 +83,7 @@ $clients = PersonData::getClients();
 <table class="table table-bordered">
 	<thead>
 	<th></th>
+	
 		<th>Id</th>
 		<th>Cliente</th>
 		<th>Subtotal</th>

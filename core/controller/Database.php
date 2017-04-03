@@ -11,6 +11,8 @@ class Database {
 		return $con;
 	}
 
+	//$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+
 	public static function getCon(){
 		if(self::$con==null && self::$db==null){
 			self::$db = new Database();
