@@ -82,6 +82,7 @@ $clients = PersonData::getClients();
 			 	<?php $supertotal = 0; ?>
 <table class="table table-bordered">
 	<thead>
+		<th></th>
 		<th>Factura</th>
 		<th>Cliente</th>
 		<th>Dinero</th>
@@ -90,6 +91,9 @@ $clients = PersonData::getClients();
 	</thead>
 <?php foreach($operations as $operation):?>
 	<tr>
+
+
+		<td> <a href="http://www.segudocpro.com/chair/report/djl1abono-pos.php?id=<?php echo $operation->idCreditoAbono; ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></a></td>
 		<td>
 			
 		<?php if($operation->idCreditoAbono!=null){

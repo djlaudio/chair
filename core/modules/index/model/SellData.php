@@ -1,6 +1,6 @@
 <?php
 
-
+require 'connect_db.php';
 
 class SellData {
 
@@ -32,7 +32,7 @@ class SellData {
   public function add(){
 
    
-require 'connect_db.php';
+
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
@@ -72,7 +72,7 @@ echo $this->iv;
 
 public function addCreditos(){
 
-require 'connect_db.php';
+
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -91,7 +91,7 @@ echo $max_id;
 
  public function addSellNoIv(){
 
- require 'connect_db.php';
+
 
  $max = "SELECT MAX(idSellNoIV) as max_id FROM sell_no_iv";
  $max1 =  mysqli_query($link, $max);
@@ -112,7 +112,7 @@ echo $max_id;
 public function addCreditos_with_client()
 {
 
-require 'connect_db.php';
+
 
 $max = "SELECT MAX(numFactura) as max_id FROM credito";
 $max1 =  mysqli_query($link, $max);
@@ -135,7 +135,7 @@ echo $max_id;
 
   public function add_with_client(){
 
- require 'connect_db.php';
+ 
 
 $max = "SELECT MAX(id2) as max_id FROM sell where iv=$this->iv";
 $max1 =  mysqli_query($link, $max);
