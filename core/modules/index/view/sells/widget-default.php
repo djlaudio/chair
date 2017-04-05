@@ -20,7 +20,8 @@ if(count($products)>0){
 		<th></th>
 		<th>Producto</th>
 		<th>Cliente</th>
-		<th>Total</th>
+		<th>SubTotal</th>
+		<th>Gran Total</th>
 		<th>Fecha</th>
 		<th>Término de pago</th>
 		<th>Numero</th>
@@ -61,6 +62,14 @@ $total= $sell->total-$sell->discount;
 ?>			
 
 		</td>
+
+		<td>₡ <?php
+
+$grantotal;
+$sell->iv  == 0 ? $grantotal =$sell->total  - $sell->discount  : $grantotal =$sell->total - $sell->discount + (($sell->total - $sell->discount) * .13 ) ;
+
+		 echo number_format($grantotal,2,'.',','); ?></td>
+		 
 		<td><?php echo $sell->created_at; ?></td>
 
 		<td> <?php
