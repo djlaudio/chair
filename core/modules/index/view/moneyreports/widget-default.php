@@ -91,6 +91,9 @@ $clients = PersonData::getClients();
 		<th>Fecha</th>
 	</thead>
 <?php foreach($operations as $operation):?>
+
+	
+
 	<tr>
 
 
@@ -105,7 +108,13 @@ $clients = PersonData::getClients();
 		</td>
 		<td>
 		
+ <?php
 
+ $sell = SellData::getById($operation->id2creditoAbono);
+
+  if($sell->person_id!=null){
+                    $client = $sell->getPerson();
+                    echo($client->name." ".$client->lastname." - ".$client->nameBusiness);   }?>
                     </td>
 		<td>₡ <?php echo number_format($operation->cantidadAbono,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->saldoCredito,2,'.',','); ?></td>

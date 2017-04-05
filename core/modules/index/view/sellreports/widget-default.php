@@ -104,7 +104,13 @@ $client = $operation->getPerson();
                     </td>
 		<td>₡ <?php echo number_format($operation->total,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->discount,2,'.',','); ?></td>
-		<td>₡ <?php echo number_format($operation->total-$operation->discount,2,'.',','); ?></td>
+		<td>₡ <?php
+
+$grantotal;
+$operation->iv  == 0 ? $grantotal =$operation->total  - $operation->discount  : $grantotal =$operation->total - $operation->discount + (($operation->total - $operation->discount) * .13 ) ;
+
+		 echo number_format($grantotal,2,'.',','); ?></td>
+
 
 		
 		<td> <?php

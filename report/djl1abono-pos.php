@@ -77,6 +77,8 @@ include "../core/modules/index/model/ProductData.php";
 include "../core/modules/index/model/CategoryData.php";
 include "../core/modules/index/model/AbonoData.php";
 include "../core/modules/index/model/SellData.php";
+include "../core/modules/index/model/PersonData.php";
+include "../core/modules/index/model/UserData.php";
 
 
 
@@ -89,6 +91,7 @@ Autoloader::register();
 
 $word = new PhpOffice\PhpWord\PhpWord();
 $abonos = AbonoData::getByCredito($_GET["id"]);
+
 /*$sell = SellData::getById($abono->id2creditoAbono);*/
 
 
@@ -130,6 +133,11 @@ $table1->addCell(2000)->addText($abono->idCobrador);
 
 $sell = SellData::getById($abono->id2creditoAbono);
 
+if($sell->person_id!=null){ $client = $sell->getPerson();}
+
+
+
+
 ?>
 
 
@@ -161,18 +169,20 @@ Abono a factura <?php echo($sell->id2);  ?>
 <br />
 <?php
 
-date_default_timezone_set('America/Costa_Rica');
-echo date("d/m/Y") ;
+// date_default_timezone_set('America/Costa_Rica');
+// echo date("d/m/Y") ;
 
 ?><br>
 <br />
 
 Atiende:
-<?php echo($_SESSION["usuario"]);  ?>
+<!-- <?php echo($user->name);  ?> -->
 <br />
 <br />
 Cliente:
-<?php echo($_SESSION["nombre"]);  ?>
+ <?php if($sell->person_id!=null){
+
+                    echo($client->name." ".$client->lastname." - ".$client->nameBusiness);   }?>
 
 
 

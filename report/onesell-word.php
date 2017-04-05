@@ -201,9 +201,9 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
                                <font size="1"> Factura No. </font> <font size="20"> <?php echo($sell->id2);  ?></font> <br>
                                 <?php
 
-date_default_timezone_set('America/Costa_Rica');
-$fecha=new DateTime($sell->created_at);
-echo ($fecha->format("d/m/Y")) ;
+    date_default_timezone_set('America/Costa_Rica');
+    $fecha=new DateTime($sell->created_at);
+    echo ($fecha->format("d/m/Y")) ;
 
 ?><br>
 
