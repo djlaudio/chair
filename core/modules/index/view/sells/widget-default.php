@@ -22,6 +22,7 @@ if(count($products)>0){
 		<th>Cliente</th>
 		<th>Total</th>
 		<th>Fecha</th>
+		<th>Término de pago</th>
 		<th>Numero</th>
 		<th></th>
 	</thead>
@@ -61,6 +62,12 @@ $total= $sell->total-$sell->discount;
 
 		</td>
 		<td><?php echo $sell->created_at; ?></td>
+
+		<td> <?php
+		$termino_id=$sell->termino_id;
+		include 'terminoPago.php';
+
+		 echo ($a); ?> </td>
 
 		<td><?php echo $sell->id2; ?></td>
 

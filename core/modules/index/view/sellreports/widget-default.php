@@ -89,6 +89,7 @@ $clients = PersonData::getClients();
 		<th>Subtotal</th>
 		<th>Descuento</th>
 		<th>Total</th>
+		<th>Término de pago</th>
 		<th>Fecha</th>
 	</thead>
 <?php foreach($operations as $operation):?>
@@ -104,6 +105,13 @@ $client = $operation->getPerson();
 		<td>₡ <?php echo number_format($operation->total,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->discount,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->total-$operation->discount,2,'.',','); ?></td>
+
+		
+		<td> <?php
+		
+		$termino_id=$operation->termino_id;
+		include 'terminoPago.php';
+		 echo ($a); ?> </td>
 		<td><?php echo $operation->created_at; ?></td>
 	</tr>
 <?php

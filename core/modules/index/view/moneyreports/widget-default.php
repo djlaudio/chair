@@ -87,6 +87,7 @@ $clients = PersonData::getClients();
 		<th>Cliente</th>
 		<th>Dinero</th>
 		<th>Saldo</th>
+		<th>Tipo de pago</th>
 		<th>Fecha</th>
 	</thead>
 <?php foreach($operations as $operation):?>
@@ -104,9 +105,19 @@ $clients = PersonData::getClients();
 		</td>
 		<td>
 		
+
                     </td>
 		<td>₡ <?php echo number_format($operation->cantidadAbono,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->saldoCredito,2,'.',','); ?></td>
+		<td>
+			<?php 
+			$tipo_pago= $operation->tipo_pago;
+			include 'tipoPago.php';
+			echo ($tp);
+
+			?>
+
+		</td>
 		<td><?php echo $operation->fechaAbono; ?></td>
 	</tr>
 <?php

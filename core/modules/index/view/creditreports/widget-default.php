@@ -87,7 +87,7 @@ $clients = PersonData::getClients();
 		<th>Cliente</th>
 		<th>Total</th>
 		<th>Saldo</th>
-		
+		<th>Término de pago</th>
 		<th>Fecha</th>
 		
 	</thead>
@@ -106,7 +106,9 @@ $client = $sell->getPerson();
 	
 		<td>₡ <?php echo number_format($operation->cantidadCredito,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->saldoActual,2,'.',','); ?></td>
-		
+		<td> <?php
+		include 'terminoPago.php';
+		 echo ($a); ?> </td>
 		<td><?php echo $operation->fechaCredito; ?></td>
 	</tr>
 <?php

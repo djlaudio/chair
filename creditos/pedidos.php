@@ -13,7 +13,7 @@ header('Location: index.php');
 
 
 <?php
-date_default_timezone_set('America/Tegucigalpa');
+date_default_timezone_set('America/Costa_Rica');
  echo 'Bienvenido, ', $_SESSION['usuario'],' el día de hoy es  ', 'en numero',getdate("wday"), letra ,date(date),' el día de hoy es  ',date('l jS \of F Y h:i:s A') ; 
 
 ?>
