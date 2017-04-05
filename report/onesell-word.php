@@ -202,7 +202,8 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
                                 <?php
 
 date_default_timezone_set('America/Costa_Rica');
-echo date("d/m/Y") ;
+$fecha=new DateTime($sell->created_at);
+echo ($fecha->format("d/m/Y")) ;
 
 ?><br>
 

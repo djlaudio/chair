@@ -94,7 +94,16 @@ $_SESSION["errors"] = $errors;
 $credito = new CreditoData();
 
 
-$sell->iv  == 0 ? $credito ->cantidadCredito =$_POST["total"] : $credito ->cantidadCredito =$_POST["total"] + ($_POST["total"] * .13) ;
+$sell->iv  == 0 ? $credito ->cantidadCredito =$_POST["total"]  - $sell->discount  : $credito ->cantidadCredito =$_POST["total"] - $sell->discount + (($_POST["total"] - $sell->discount) * .13 ) ;
+
+echo ('IV' );
+echo ($sell->total);
+
+echo ('discount' );
+echo ($sell->discount);
+
+echo ('IV' );
+echo (($_POST["total"] - $sell->discount) * .13 );
 
 $credito->idVendedor = $_SESSION["user_id"];
 $credito->diaPago = $_POST["dia_pago"];
