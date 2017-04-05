@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 05-04-2017 a las 09:55:12
+-- Tiempo de generación: 05-04-2017 a las 14:34:53
 -- Versión del servidor: 10.0.30-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -44,34 +44,6 @@ CREATE TABLE IF NOT EXISTS `abono` (
   KEY `idAbono_2` (`idAbono`),
   KEY `idCreditoAbono` (`idCreditoAbono`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=218 ;
-
---
--- Volcado de datos para la tabla `abono`
---
-
-INSERT INTO `abono` (`idAbono`, `fechaAbono`, `cantidadAbono`, `idCreditoAbono`, `saldoCredito`, `idCobrador`, `porcComisionCobrador`, `diaPago`, `observacion`, `idSistema`, `tipo_pago`, `boxed`, `id2creditoAbono`) VALUES
-(193, '2017-01-16', 120, 3768, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(197, '2017-02-21', 279300, 3772, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(198, '2017-02-23', 9000, 3773, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(199, '2017-02-23', 2000, 3774, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(200, '2017-02-23', 2000, 3775, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(201, '2017-02-23', 2000, 3776, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(202, '2017-02-23', 4000, 3777, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(203, '2017-02-23', 4000, 3778, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(204, '2017-02-23', 4000, 3779, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(205, '2017-02-24', 1946750, 3780, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(206, '2017-02-27', 5860975, 3784, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(207, '2017-02-28', 10000, 3790, 57900, 0, 0, 1, '', 0, 0, b'0', 498),
-(208, '2017-03-22', 20000, 3794, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(209, '2017-03-22', 2000, 3795, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(210, '2017-03-22', 2000, 3796, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(211, '2017-03-23', 2000, 3797, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(212, '2017-03-23', 2000, 3798, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(213, '2017-03-23', 2000, 3799, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(214, '2017-03-28', 7850, 3800, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(215, '2017-03-28', 7850, 3801, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(216, '2017-04-03', 2000, 3804, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0),
-(217, '2017-04-03', 2000, 3805, 0, 28, 0, 0, 'Factura de Contado', 0, 0, b'0', 0);
 
 -- --------------------------------------------------------
 
@@ -197,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `nameBusiness` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`idCliente`),
   KEY `idPersona` (`idPersona`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=720 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=721 ;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -247,7 +219,8 @@ INSERT INTO `cliente` (`idCliente`, `idPersona`, `calificacion`, `comentarios`, 
 (716, 836, 5, '', 0, 1, 0, 0, '', '', '0000-00-00 00:00:00', NULL),
 (717, 837, 5, '', 0, 1, 0, 0, '', '', '0000-00-00 00:00:00', NULL),
 (718, 838, 5, '', 0, 1, 0, 0, '', '', '0000-00-00 00:00:00', NULL),
-(719, 839, 5, '', 0, 1, 0, 0, '', '', '0000-00-00 00:00:00', NULL);
+(719, 839, 5, '', 0, 1, 0, 0, '', '', '0000-00-00 00:00:00', NULL),
+(720, 840, 5, '', 0, 1, 0, 0, '', '', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -1669,50 +1642,11 @@ CREATE TABLE IF NOT EXISTS `credito` (
   `idSell` int(20) NOT NULL,
   `esCompra` tinyint(1) NOT NULL,
   PRIMARY KEY (`idCredito`),
-  KEY `idClienteCredito` (`idClienteCredito`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3807 ;
-
---
--- Volcado de datos para la tabla `credito`
---
-
-INSERT INTO `credito` (`idCredito`, `fechaCredito`, `cantidadCredito`, `idClienteCredito`, `interesCredito`, `cuotaCredito`, `plazoCredito`, `diaPago`, `porcComisionVendedor`, `idVendedor`, `codigoProducto`, `descrProducto`, `saldoActual`, `observacion`, `idSistema`, `numFactura`, `tipoFactura`, `anulada`, `causaAnulacion`, `pagos`, `idTipoClientes`, `montoMora`, `nro_de_pagos`, `horaDePagoNormal`, `montoPagado`, `termino_id`, `anulada2`, `diferenciaPago`, `idSell`, `esCompra`) VALUES
-(3768, '2017-01-16', 120, 0, 0, 0, 0, 1, 0, 1, 0, '', 120, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 0, 0),
-(3772, '2017-02-21', 315609, 810, 0, 0, 0, 1, 0, 18, 0, '', 315609, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 480, 0),
-(3773, '2017-02-23', 9000, 0, 0, 0, 0, 1, 0, 1, 0, '', 9000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 481, 1),
-(3774, '2017-02-23', 2260, 813, 0, 0, 0, 1, 0, 1, 0, '', 2260, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 482, 0),
-(3775, '2017-02-23', 2000, 813, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 483, 0),
-(3776, '2017-02-23', 2260, 825, 0, 0, 0, 1, 0, 1, 0, '', 2260, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 484, 0),
-(3777, '2017-02-23', 4000, 810, 0, 0, 0, 1, 0, 1, 0, '', 4000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 485, 0),
-(3778, '2017-02-23', 4520, 810, 0, 0, 0, 1, 0, 1, 0, '', 4520, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 486, 0),
-(3779, '2017-02-23', 4000, 810, 0, 0, 0, 1, 0, 1, 0, '', 4000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 487, 0),
-(3780, '2017-02-24', 1946750, 0, 0, 0, 0, 1, 0, 18, 0, '', 1946750, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 488, 1),
-(3781, '2017-02-24', 4600, 801, 0, 0, 0, 1, 0, 18, 0, '', 4600, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 489, 0),
-(3782, '2017-02-24', 11781300, 811, 0, 0, 0, 1, 0, 18, 0, '', 11781300, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 490, 0),
-(3783, '2017-02-24', 1158950, 811, 0, 0, 0, 1, 0, 18, 0, '', 1158950, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 491, 0),
-(3784, '2017-02-27', 5860975, 811, 0, 0, 0, 1, 0, 18, 0, '', 5860975, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 492, 0),
-(3785, '2017-02-27', 763625, 811, 0, 0, 0, 1, 0, 18, 0, '', 763625, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 493, 0),
-(3786, '2017-02-27', 329400, 811, 0, 0, 0, 1, 0, 18, 0, '', 329400, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 494, 0),
-(3787, '2017-02-27', 184000, 811, 0, 0, 0, 1, 0, 18, 0, '', 184000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 495, 0),
-(3788, '2017-02-27', 391000, 811, 0, 0, 0, 1, 0, 18, 0, '', 391000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 496, 0),
-(3789, '2017-02-27', 1080950, 811, 0, 0, 0, 1, 0, 18, 0, '', 1080950, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 497, 0),
-(3790, '2017-02-28', 67900, 812, 0, 0, 0, 1, 0, 18, 0, '', 57900, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 10000, 137, 0, 0, 498, 0),
-(3791, '2017-03-10', 189600, 813, 0, 0, 0, 9, 0, 18, 0, '', 189600, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 499, 0),
-(3792, '2017-03-16', 135000, 813, 0, 0, 0, 1, 0, 18, 0, '', 135000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 500, 0),
-(3793, '2017-03-17', 141300, 813, 0, 0, 0, 1, 0, 18, 0, '', 141300, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 501, 0),
-(3794, '2017-03-22', 20000, 0, 0, 0, 0, 1, 0, 1, 0, '', 20000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 502, 1),
-(3795, '2017-03-22', 2260, 1, 0, 0, 0, 1, 0, 1, 0, '', 2260, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 503, 0),
-(3796, '2017-03-22', 2000, 1, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 504, 0),
-(3797, '2017-03-23', 2000, 801, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 505, 0),
-(3798, '2017-03-23', 2000, 1, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 506, 0),
-(3799, '2017-03-23', 2000, 1, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 507, 0),
-(3800, '2017-03-28', 7850, 1, 0, 0, 0, 1, 0, 1, 0, '', 7850, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 503, 0),
-(3801, '2017-03-28', 7850, 825, 0, 0, 0, 1, 0, 1, 0, '', 7850, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 504, 0),
-(3802, '2017-03-28', 141300, 813, 0, 0, 0, 1, 0, 18, 0, '', 141300, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 505, 0),
-(3803, '2017-03-28', 576600, 813, 0, 0, 0, 1, 0, 18, 0, '', 576600, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 506, 0),
-(3804, '2017-04-03', 2000, 1, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 507, 0),
-(3805, '2017-04-03', 2000, 1, 0, 0, 0, 1, 0, 1, 0, '', 2000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 135, 0, 0, 508, 0),
-(3806, '2017-04-03', 24000, 839, 0, 0, 0, 1, 0, 18, 0, '', 24000, 'Factura de Contado', 0, 0, 0, 0, '', 0, 0, 0, 0, '00:00:00', 0, 137, 0, 0, 509, 0);
+  KEY `idClienteCredito` (`idClienteCredito`),
+  KEY `idSell` (`idSell`),
+  KEY `idSell_2` (`idSell`),
+  KEY `idSell_3` (`idSell`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3808 ;
 
 -- --------------------------------------------------------
 
@@ -3579,7 +3513,7 @@ CREATE TABLE IF NOT EXISTS `operation` (
   KEY `product_id` (`product_id`),
   KEY `operation_type_id` (`operation_type_id`),
   KEY `sell_id` (`sell_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=734 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=736 ;
 
 --
 -- Volcado de datos para la tabla `operation`
@@ -3661,7 +3595,9 @@ INSERT INTO `operation` (`id`, `product_id`, `q`, `operation_type_id`, `sell_id`
 (728, 75, 18, 2, 506, '2017-03-28 15:43:49'),
 (729, 76, 18, 2, 506, '2017-03-28 15:43:50'),
 (732, 78, 6, 1, NULL, '2017-04-03 18:51:33'),
-(733, 78, 6, 2, 509, '2017-04-03 18:55:37');
+(733, 78, 6, 2, 509, '2017-04-03 18:55:37'),
+(734, 79, 57, 1, NULL, '2017-04-05 10:01:30'),
+(735, 79, 57, 2, 510, '2017-04-05 10:14:25');
 
 -- --------------------------------------------------------
 
@@ -3725,7 +3661,7 @@ CREATE TABLE IF NOT EXISTS `person` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `cedula` (`cedula`),
   UNIQUE KEY `phone1` (`phone1`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=840 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=841 ;
 
 --
 -- Volcado de datos para la tabla `person`
@@ -3762,7 +3698,8 @@ INSERT INTO `person` (`id`, `image`, `name`, `lastname`, `company`, `address1`, 
 (836, NULL, 'Delver ', 'Contreras', NULL, 'Upala', NULL, '86776749', '', NULL, NULL, 1, '2017-03-03 11:05:46', NULL, '', 'Acetato'),
 (837, NULL, 'Lourdes', 'Rojas', NULL, 'Atenas', NULL, '24461149', '', NULL, NULL, 1, '2017-03-03 11:28:16', NULL, '', 'Limite Store'),
 (838, NULL, 'Nora', 'Mora ', NULL, 'Turrialba', NULL, '25564334', '', NULL, NULL, 1, '2017-03-03 11:45:25', NULL, 'Méndez', 'Bazar Nora'),
-(839, NULL, 'Aurelia', 'Salazar', NULL, '50 mts Norte de Alarsa', NULL, '88183594', '', NULL, NULL, 1, '2017-04-03 16:46:37', NULL, '', ' Kinder Fatima');
+(839, NULL, 'Aurelia', 'Salazar', NULL, '50 mts Norte de Alarsa', NULL, '88183594', '', NULL, NULL, 1, '2017-04-03 16:46:37', NULL, '', ' Kinder Fatima'),
+(840, NULL, 'Javier', 'Hidalgo', NULL, 'Boulevar Chino San Jose.', NULL, '22227776', '87332117', NULL, NULL, 1, '2017-04-05 07:59:01', NULL, '', 'Unipunto');
 
 -- --------------------------------------------------------
 
@@ -3816,7 +3753,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   UNIQUE KEY `barcode` (`barcode`),
   KEY `category_id` (`category_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=80 ;
 
 --
 -- Volcado de datos para la tabla `product`
@@ -3848,7 +3785,8 @@ INSERT INTO `product` (`id`, `image`, `barcode`, `name`, `description`, `inventa
 (75, NULL, '21', 'Camiseta manga larga combinada.', '', 0, 4500, 7950, 'PRENDA', '', 18, 2, '2017-03-28 10:53:24', 1),
 (76, NULL, '22', 'Camiseta manga corta a 3 tonos con zipper.', '', 0, 4500, 7950, 'PRENDA', '', 18, 2, '2017-03-28 10:56:13', 1),
 (77, NULL, '23', 'Pantalonetas', '', 0, 5300, 8800, 'PRENDA', '', 18, 3, '2017-03-28 10:57:20', 1),
-(78, NULL, '24', 'Short Uniforme', '', 0, 2500, 4000, 'PRENDA', '', 18, 3, '2017-04-03 18:51:33', 1);
+(78, NULL, '24', 'Short Uniforme', '', 0, 2500, 4000, 'PRENDA', '', 18, 3, '2017-04-03 18:51:33', 1),
+(79, NULL, '25', 'Pantaloneta', '', 0, 5300, 8600, 'PRENDA', '', 18, 3, '2017-04-05 10:01:30', 1);
 
 -- --------------------------------------------------------
 
@@ -3889,7 +3827,7 @@ CREATE TABLE IF NOT EXISTS `sell` (
   KEY `operation_type_id` (`operation_type_id`),
   KEY `user_id` (`user_id`),
   KEY `person_id` (`person_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=510 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=511 ;
 
 --
 -- Volcado de datos para la tabla `sell`
@@ -3915,7 +3853,8 @@ INSERT INTO `sell` (`id`, `person_id`, `user_id`, `operation_type_id`, `box_id`,
 (502, NULL, 1, 1, NULL, NULL, NULL, NULL, '2017-03-22 17:04:56', 135, 0, 0, b'0', 0),
 (505, 813, 18, 2, NULL, 141300, NULL, 0, '2017-03-28 15:25:41', 137, 0, 0, b'0', 5007),
 (506, 813, 18, 2, NULL, 576600, NULL, 0, '2017-03-28 15:43:48', 137, 0, 0, b'0', 5008),
-(509, 839, 18, 2, NULL, 24000, NULL, 0, '2017-04-03 18:55:36', 137, 0, 0, b'0', 5009);
+(509, 839, 18, 2, NULL, 24000, NULL, 0, '2017-04-03 18:55:36', 137, 0, 0, b'0', 5009),
+(510, 840, 18, 2, NULL, 490200, NULL, 0, '2017-04-05 10:14:24', 141, 0, 0, b'0', 5010);
 
 -- --------------------------------------------------------
 
