@@ -28,11 +28,24 @@ $sell->total = $_POST["total"];
 $credito = new CreditoData();
 
 
-$sell->iv  == 0 ? $credito ->cantidadCredito =$_POST["total"] : $credito ->cantidadCredito =$_POST["total"] + ($_POST["total"] * .13) ;
+$sell->iv  == 0 ? $credito ->cantidadCredito =$_POST["total"]   : $credito ->cantidadCredito =$_POST["total"] + (($_POST["total"]) * .13 ) ;
+
+echo ('IV' );
+echo ($sell->total);
+
+echo ('discount' );
+
+
+echo ('IV' );
+echo (($_POST["total"] ) * .13 );
+
+echo ('sell IV' );
+echo ($sell->iv);
+
 
 $credito->idVendedor = $_SESSION["user_id"];
 $credito->diaPago = $_POST["dia_pago"];
-$credito->saldoActual = $_POST["total"];
+$credito->saldoActual = $credito ->cantidadCredito;
 $credito->termino_id = $_POST["termino_id"];
 $credito->esCompra = 1;
 
