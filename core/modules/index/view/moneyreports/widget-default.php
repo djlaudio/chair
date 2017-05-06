@@ -84,6 +84,7 @@ $clients = PersonData::getClients();
 	<thead>
 		<th></th>
 		<th>Factura</th>
+		<th>Id</th>
 		<th>Cliente</th>
 		<th>Dinero</th>
 		<th>Saldo</th>
@@ -97,7 +98,7 @@ $clients = PersonData::getClients();
 	<tr>
 
 
-		<td> <a href="http://www.segudocpro.com/chair/report/djl1abono-pos.php?id=<?php echo $operation->idCreditoAbono; ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+		<td> <a href="http://www.fastness.us/ventas/report/djl1abono-pos.php?id=<?php echo $operation->idCreditoAbono; ?>" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-eye-open"></i></a></td>
 		<td>
 			
 		<?php if($operation->idCreditoAbono!=null){
@@ -106,6 +107,8 @@ $clients = PersonData::getClients();
                     echo($operation ->idCreditoAbono);   }?>
 
 		</td>
+
+		<td> <?php echo($operation ->idAbono); ?></td>
 		<td>
 		
  <?php

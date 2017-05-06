@@ -147,7 +147,7 @@ $table1->addCell(2000)->addText($abono->idCobrador);
 <center>Ced Juridica: 20344041621</center>
 <br />
 
-  Tel: (506)8324-9197 / (506)2445-6235
+  Tel: (506)8324-9147 / (506)2445-6235
 <br />
 <br />
 

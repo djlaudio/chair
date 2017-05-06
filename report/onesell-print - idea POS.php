@@ -430,7 +430,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
 
                                 Jorge Chacon Rojas, Inc.<br>
                                 300 N de Iglesia El Tremedal<br>
-                                Tel: (506)8324-9197<br>
+                                Tel: (506)8324-9147<br>
                                 Ced Juridica: 20344041621
                             </td>
 

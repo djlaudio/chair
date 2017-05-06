@@ -160,7 +160,7 @@ href=javascript:window.print();>FASTNESS CLOTHING</a>
 			
 			<br />
 			<br />
-			Tel: (506)8324-9197 / (506)2445-6235 
+			Tel: (506)8324-9147 / (506)2445-6235 
 		</CENTER>	
 <br />
 <br />
@@ -175,8 +175,8 @@ Abono a factura <?php echo($sell->id2);  ?>
 ?><br>
 <br />
 
-Atiende:
-<!-- <?php echo($user->name);  ?> -->
+<!-- Atiende:
+<!-- <?php echo($user->name);  ?> --> 
 <br />
 <br />
 Cliente:

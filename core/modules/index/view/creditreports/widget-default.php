@@ -84,6 +84,7 @@ $clients = PersonData::getClients();
 	<thead>
 	<th> </th>
 		<th>Id</th>
+		<th>Credito</th>
 		<th>Cliente</th>
 		<th>Total</th>
 		<th>Saldo</th>
@@ -98,11 +99,14 @@ $clients = PersonData::getClients();
 		<td><?php if($operation->idSell!=null){
 $sell = $operation->getCreditSell();
                     echo($sell->id2);   }?></td>
-		<td>
-		<?php if($sell->person_id!=null){
+                    <td><?php echo($operation->idCredito) ?></td>
+
+		<td><?php if($sell->person_id!=null){
 $client = $sell->getPerson();
                     echo($client->name." ".$client->lastname ." - ".$client->nameBusiness );   }?>
                     </td>
+		
+		
 	
 		<td>₡ <?php echo number_format($operation->cantidadCredito,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->saldoActual,2,'.',','); ?></td>

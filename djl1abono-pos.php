@@ -150,7 +150,7 @@ $table1->addCell(2000)->addText($abono->idCobrador);
 			
 			<br />
 			<br />
-			Tel: (506)8324-9197 / (506)2445-6235 
+			Tel: (506)8324-9147 / (506)2445-6235 
 		</CENTER>	
 <br />
 <br />

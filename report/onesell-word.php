@@ -229,7 +229,7 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
           <font size="1">   Jorge Chacón Rojas<br>
                                 Apartado Postal Alajuela San Ramón<br>
                                 300 N de Iglesia El Tremedal<br>
-                                Tel: (506)8324-9197 / (506)2445-6235 <br>
+                                Tel: (506)8324-9147 / (506)2445-6235 <br>
                                 Ced Jurídica: 20344041621  </font><?php
             }?>
 
