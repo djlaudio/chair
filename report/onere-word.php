@@ -59,8 +59,8 @@ foreach($operations as $operation){
 $table2->addCell()->addText($product->id);
 $table2->addCell()->addText($operation->q);
 $table2->addCell()->addText($product->name);
-$table2->addCell()->addText("$".number_format($product->price_in,2,".",","));
-$table2->addCell()->addText("$".number_format($operation->q*$product->price_in,2,".",","));
+$table2->addCell()->addText("₡".number_format($product->price_in,2,".",","));
+$table2->addCell()->addText("₡".number_format($operation->q*$product->price_in,2,".",","));
 $total+=$operation->q*$product->price_in;
 }
 

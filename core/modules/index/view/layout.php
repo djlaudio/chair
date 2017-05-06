@@ -75,6 +75,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
                 <li><a href="index.php?view=sellreports">Ventas</a></li>
                 <li><a href="index.php?view=moneyreports">Recibos de dinero</a></li>
                 <li><a href="index.php?view=creditreports">Créditos</a></li>
+                <li><a href="index.php?view=creditbuyreports">Pagos por hacer</a></li>
                 <li><a href="index.php?view=reports"> Inventario</a></li>
 
               </ul>

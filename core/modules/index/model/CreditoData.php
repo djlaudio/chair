@@ -42,7 +42,7 @@ public function getCreditSell(){ return SellData::getById($this->idSell);}
 	echo "Max id es";
 	echo $max_id;
 
-	  $sql = "insert into credito(idVendedor,  cantidadCredito, diaPago, observacion, fechaCredito, saldoActual, descrProducto, cuotaCredito, termino_id, numFactura, montoPagado) values ('28', $this->total, $this->dia_pago, '', $this->created_at, $this->total, '', $this->cuota, $this->termino_id, , ($max_id+1), '0')";
+	  $sql = "insert into credito(idVendedor,  cantidadCredito, diaPago, observacion, fechaCredito, saldoActual, descrProducto, cuotaCredito, termino_id, numFactura, montoPagado) values ('28', $this->total, $this->dia_pago, '', $this->created_at, $this->total, '', $this->cuota, $this->termino_id, ($max_id+1), '0')";
 
 
 	 // $sql="INSERT INTO credito(idVendedor, idClienteCredito, cantidadCredito, diaPago, observacion, fechaCredito, saldoActual, descrProducto, cuotaCredito, termino_id, numFactura, montoPagado) //values ('$idUsuario','$idCliente','$credito','$diaPago', '$observacion','$fechaCredito','$credito','$descrProductoCre',$cuotaCredito, $termino_id, ($max_id+1), '0')";
@@ -64,7 +64,28 @@ public function getCreditSell(){ return SellData::getById($this->idSell);}
 		FROM credito
 		INNER JOIN cliente ON credito.idClienteCredito = cliente.idPersona
 		INNER JOIN persona ON cliente.idPersona = persona.idPersona
-		WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id='137' and credito.anulada='0' and credito.anulada2='0'
+		WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id>='137' and credito.anulada='0' and credito.anulada2='0' and credito.esCompra='0'
+		order by persona.nombre";
+
+		$query = Executor::doit($sql);
+		$array = array();
+		$cnt = 0;
+		while($r = $query[0]->fetch_array()){
+			$array[$cnt] = new CreditoData();
+			$array[$cnt]->idCredito = $r['idCredito'];
+			$array[$cnt]->descripcion = $r['descripcion'];
+			$cnt++;
+		}
+		return $array;
+	}
+
+	public static function getAllBuys(){
+
+		$sql = "SELECT idCredito, CONCAT( credito.idCredito,' Factura: ', credito.numFactura, ' ', persona.nombre, cantidadCredito,  ' col.', credito.observacion) AS descripcion
+		FROM credito
+		INNER JOIN cliente ON credito.idClienteCredito = cliente.idPersona
+		INNER JOIN persona ON cliente.idPersona = persona.idPersona
+		WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id>='137' and credito.anulada='0' and credito.anulada2='0' and credito.esCompra='0'
 		order by persona.nombre";
 
 		$query = Executor::doit($sql);
@@ -86,13 +107,28 @@ public function getCreditSell(){ return SellData::getById($this->idSell);}
   }
 
 	public static function getAllCreditByDateOp($start,$end,$op){
-  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and cantidadCredito>montoPagado and termino_id>='137' order by idCredito desc";
+  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='0' order by idCredito desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new CreditoData());
 
   }
+
+  public static function getAllCreditBuyByDateOp($start,$end,$op){
+  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='1' order by idCredito desc";
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new CreditoData());
+
+  }
+
   public static function getAllCreditByDateBCOp($clientid,$start,$end,$op){
- $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and idClienteCredito=$clientid and cantidadCredito>montoPagado and termino_id>='137' order by idCredito desc";
+ $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and idClienteCredito=$clientid and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='0' order by idCredito desc";
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new CreditoData());
+
+  }
+
+   public static function getAllCreditBuyByDateBCOp($clientid,$start,$end,$op){
+ $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and idClienteCredito=$clientid and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='1' order by idCredito desc";
     $query = Executor::doit($sql);
     return Model::many($query[0],new CreditoData());
 

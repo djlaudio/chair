@@ -36,17 +36,17 @@ class PersonData {
 
 // partiendo de que ya tenemos creado un objecto PersonData previamente utilizamos el contexto
 	public function update(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\",phone2=\"$this->phone2\",nameBusiness=\"$this->nameBusiness\", cedula=\"$this->cedula\"  where id=$this->id";
 		Executor::doit($sql);
 	}
 
 	public function update_client(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\",phone2=\"$this->phone2\",nameBusiness=\"$this->nameBusiness\", cedula=\"$this->cedula\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
 	public function update_provider(){
-		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\" where id=$this->id";
+		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\",phone2=\"$this->phone2\",nameBusiness=\"$this->nameBusiness\", cedula=\"$this->cedula\" where id=$this->id";
 		Executor::doit($sql);
 	}
 
@@ -68,6 +68,7 @@ class PersonData {
 			$data->lastname = $r['lastname'];
 			$data->address1 = $r['address1'];
 			$data->phone1 = $r['phone1'];
+			$data->phone2 = $r['phone2'];
 			$data->email1 = $r['email1'];
 			$data->created_at = $r['created_at'];
 $data->cedula = $r['cedula'];
@@ -93,6 +94,7 @@ $data->cedula = $r['cedula'];
 			$array[$cnt]->email = $r['email1'];
 			$array[$cnt]->username = $r['username'];
 			$array[$cnt]->phone1 = $r['phone1'];
+			$array[$cnt]->phone2 = $r['phone2'];
 			$array[$cnt]->address1 = $r['address1'];
 			$array[$cnt]->created_at = $r['created_at'];
 			$cnt++;
@@ -115,6 +117,7 @@ $data->cedula = $r['cedula'];
 			$array[$cnt]->nameBusiness = $r['nameBusiness'];
 			$array[$cnt]->email1 = $r['email1'];
 			$array[$cnt]->phone1 = $r['phone1'];
+			$array[$cnt]->phone2 = $r['phone2'];
 			$array[$cnt]->address1 = $r['address1'];
 			$array[$cnt]->created_at = $r['created_at'];
 			$cnt++;
@@ -137,6 +140,7 @@ $data->cedula = $r['cedula'];
 			$array[$cnt]->nameBusiness = $r['nameBusiness'];
 			$array[$cnt]->email1 = $r['email1'];
 			$array[$cnt]->phone1 = $r['phone1'];
+			$array[$cnt]->phone2 = $r['phone2'];
 			$array[$cnt]->address1 = $r['address1'];
 			$array[$cnt]->created_at = $r['created_at'];
 			$cnt++;
@@ -154,6 +158,7 @@ $data->cedula = $r['cedula'];
 			$array[$cnt]->id = $r['id'];
 			$array[$cnt]->name = $r['name'];
 			$array[$cnt]->cedula = $r['cedula'];
+			$array[$cnt]->phone2 = $r['phone2'];
 			$array[$cnt]->nameBusiness = $r['nameBusiness'];
 			$array[$cnt]->mail = $r['mail'];
 			$array[$cnt]->created_at = $r['created_at'];

@@ -41,7 +41,7 @@ $q= OperationData::getQYesF($product->id);
 		<td style="width:80px;"><?php echo $product->id; ?></td>
 		<td><?php echo $product->name; ?></td>
 		<td><?php echo $product->unit; ?></td>
-		<td><b>$<?php echo $product->price_in; ?></b></td>
+		<td><b>₡<?php echo $product->price_in; ?></b></td>
 		<td>
 			<?php echo $q; ?>
 		</td>
@@ -265,7 +265,7 @@ $clients = PersonData::getProviders();
 			alert("No se puede efectuar la operacion");
 			e.preventDefault();
 		}else{
-			go = confirm("Cambio: $"+(money-<?php echo $total;?>));
+			go = confirm("Cambio: ₡"+(money-<?php echo $total;?>));
 			if(go){}
 				else{e.preventDefault();}
 		}
