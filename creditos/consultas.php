@@ -97,7 +97,7 @@ WHERE  credito.cantidadCredito >credito.montoPagado AND credito.termino_id>=137 
 order by name";
 
 
-$ConsultaCreditosPorNombreYAreaGabrielProveedores="SELECT distinct diaPago, credito.idCredito, idClienteCredito, credito.codigoProducto, descrProducto, CONCAT(person.name, cantidadCredito,  ' dia:', d.descrDia,'cuota: ', cuotaCredito,  '# ', credito.numFactura) AS descripcion
+$ConsultaCreditosPorNombreYAreaGabrielProveedores="SELECT distinct diaPago, credito.idCredito, idClienteCredito, credito.codigoProducto, descrProducto, CONCAT(person.name, ' - ', person.nameBusiness, ' ', cantidadCredito,  ' dia:', d.descrDia,'cuota: ', cuotaCredito,  '# ', credito.numFactura) AS descripcion
 FROM dia d
 INNER JOIN credito ON d.numDia = credito.diaPago
 INNER JOIN cliente ON credito.idClienteCredito = cliente.idPersona

@@ -132,7 +132,7 @@ $clients = PersonData::getProviders();
     <select name="client_id" class="form-control">
     <option value="">-- NINGUNO --</option>
     <?php foreach($clients as $client):?>
-    	<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname;?></option>
+    		<option value="<?php echo $client->id;?>"><?php echo $client->name." ".$client->lastname ." ".$client->nameBusiness ;?></option>
     <?php endforeach;?>
     	</select>
     </div>
