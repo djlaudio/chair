@@ -14,7 +14,7 @@ $clients = PersonData::getClients();
 <select name="client_id" class="form-control">
 	<option value="">--  TODOS --</option>
 	<?php foreach($clients as $p):?>
-	<option value="<?php echo $p->id;?>"><?php echo $p->name . " - " . echo $p->nameBusiness;?></option>
+	<option value="<?php echo $p->id;?>"><?php echo $p->name . " - " . $p->nameBusiness;?></option>
 	<?php endforeach; ?>
 </select>
 
