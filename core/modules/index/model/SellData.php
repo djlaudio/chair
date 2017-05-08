@@ -127,8 +127,8 @@ echo $max_id;
 }
 
   public function add_re(){
-    $sql = "insert into ".self::$tablename." (user_id,operation_type_id,created_at, termino_id, tipo_pago, anulada) ";
-    $sql .= "value ($this->user_id,1,$this->created_at,$this->termino_id,$this->tipo_pago,0)";
+    $sql = "insert into ".self::$tablename." (user_id,operation_type_id,created_at, termino_id, tipo_pago, anulada, id2) ";
+    $sql .= "value ($this->user_id,1,$this->created_at,$this->termino_id,$this->tipo_pago,0,  $this->id2)";
     return Executor::doit($sql);
   }
 
@@ -156,8 +156,8 @@ echo $max_id;
   }
 
   public function add_re_with_client(){
-    $sql = "insert into ".self::$tablename." (person_id,operation_type_id,user_id,created_at, termino_id, tipo_pago, anulada, iv) ";
-    $sql .= "value ($this->person_id,1,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv)";
+    $sql = "insert into ".self::$tablename." (person_id,operation_type_id,user_id,created_at, termino_id, tipo_pago, anulada, iv, id2) ";
+    $sql .= "value ($this->person_id,1,$this->user_id,$this->created_at,$this->termino_id,$this->tipo_pago,0, $this->iv,  $this->id2)";
     return Executor::doit($sql);
   }
 

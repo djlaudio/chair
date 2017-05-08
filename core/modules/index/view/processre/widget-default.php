@@ -22,6 +22,7 @@ $process = true;
 			$sell->cuota = $_POST["cuota"];
       		$sell->iv = $_POST["iv"];
 			$sell->user_id = $_SESSION["user_id"];
+			$sell->id2 = $_POST["numFactura"];
 $sell->total = $_POST["total"];
 
 

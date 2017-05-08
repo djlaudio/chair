@@ -140,9 +140,9 @@ $clients = PersonData::getProviders();
 
 
 <div class="form-group">
-    <label for="cuota" class="col-lg-2 control-label">Numero de factura</label>
+    <label for="numFactura" class="col-lg-2 control-label">Numero de factura</label>
     <div class="col-lg-10">
-      <input type="text" name="cuota" class="form-control" required value="0" id="numFactura" placeholder="Factura #">
+      <input type="text" name="numFactura" class="form-control" required value="0" id="numFactura" placeholder="Factura #">
     </div>
   </div>
 
@@ -259,18 +259,54 @@ $clients = PersonData::getProviders();
   </div>
 </form>
 <script>
-	$("#processsell").submit(function(e){
-		money = $("#money").val();
-		if(money<<?php echo $total;?>){
-			alert("No se puede efectuar la operacion");
-			e.preventDefault();
-		}else{
-			go = confirm("Cambio: ₡"+(money-<?php echo $total;?>));
-			if(go){}
-				else{e.preventDefault();}
-		}
-	});
+	// $("#processsell").submit(function(e){
+	// 	money = $("#money").val();
+	// 	if(money<<?php echo $total;?>){
+	// 		alert("No se puede efectuar la operacion");
+	// 		e.preventDefault();
+	// 	}else{
+	// 		go = confirm("Cambio: ₡"+(money-<?php echo $total;?>));
+	// 		if(go){}
+	// 			else{e.preventDefault();}
+	// 	}
+	// });
+
+
+
+$(document).ready(function(){
+    $("#iv").on('change', function(){
+
+/* Lo siguiente es el valor del total menos el descuento */
+      $total_iv=$("#total").val();
+        
+        if (this.value=="0")
+
+        	{
+
+             
+        		$("#money").val($total_iv) ;
+          
+        		}
+        		else
+
+
+        			{
+
+                $total_iv=$total_iv * 1.13;
+
+        			$("#money").val($total_iv);
+              
+          }
+
+
+       
+    
+
+    });
+});	
 </script>
+
+
 </div>
 </div>
 
