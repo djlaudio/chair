@@ -9,6 +9,26 @@ $clients = PersonData::getClients();
 						<form>
 						<input type="hidden" name="view" value="sellreports">
 <div class="row">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+  $( function() {
+    $("#sd").datepicker();
+  } );
+  </script>
+
+  <script>
+  $( function() {
+    $("#ed").datepicker();
+  } );
+  </script>
+
+
 <div class="col-md-3">
 
 <select name="client_id" class="form-control">
@@ -20,11 +40,21 @@ $clients = PersonData::getClients();
 
 </div>
 <div class="col-md-3">
-<input type="date" name="sd" value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
+<input type="date" name="sd" id="sd" value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
 </div>
 <div class="col-md-3">
-<input type="date" name="ed" value="<?php if(isset($_GET["ed"])){ echo $_GET["ed"]; }?>" class="form-control">
+<input type="date" name="ed" id="ed" value="<?php if(isset($_GET["ed"])){ echo $_GET["ed"]; }?>" class="form-control">
 </div>
+
+<script>
+$(document).ready(function())
+{
+  $fecha=$("#ed");
+if ($fecha[0].type!="date"){
+$("#ed").datepicker();
+}
+}
+</script>
 
 <div class="col-md-3">
 <input type="submit" class="btn btn-success btn-block" value="Procesar">
@@ -155,3 +185,4 @@ $supertotal+= ($operation->total-$operation->discount);
 
 <br><br><br><br>
 </section>
+
