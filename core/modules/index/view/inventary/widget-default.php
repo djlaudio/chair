@@ -66,7 +66,7 @@ if($px<=$npaginas):
 	$q=OperationData::getQYesF($product->id);
 	?>
 	<tr class="<?php if($q<=$product->inventary_min/2){ echo "danger";}else if($q<=$product->inventary_min){ echo "warning";}?>">
-		<td><?php echo $product->id; ?></td>
+		<td><?php echo $product->barcode; ?></td>
 		<td><?php echo $product->name; ?></td>
 		<td>
 			

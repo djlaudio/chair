@@ -100,7 +100,7 @@ $user = $sell->getUser();
 		$product  = $operation->getProduct();
 ?>
 <tr>
-	<td><?php echo $product->id ;?></td>
+	<td><?php echo $product->barcode ;?></td>
 	<td><?php echo $operation->q ;?></td>
 	<td><?php echo $product->name ;?></td>
 

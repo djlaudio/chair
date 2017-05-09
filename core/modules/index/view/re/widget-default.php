@@ -38,7 +38,7 @@ $q= OperationData::getQYesF($product->id);
 	?>
 		<form method="post" action="index.php?view=addtore">
 	<tr class="<?php if($q<=$product->inventary_min){ echo "danger"; }?>">
-		<td style="width:80px;"><?php echo $product->id; ?></td>
+		<td style="width:80px;"><?php echo $product->barcode; ?></td>
 		<td><?php echo $product->name; ?></td>
 		<td><?php echo $product->unit; ?></td>
 		<td><b>₡<?php echo $product->price_in; ?></b></td>

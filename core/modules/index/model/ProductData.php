@@ -62,7 +62,7 @@ class ProductData {
 
 
 	public static function getAll(){
-		$sql = "select * from ".self::$tablename;
+		$sql = "select * from ".self::$tablename . " order by barcode";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ProductData());
 	}

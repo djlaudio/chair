@@ -178,7 +178,7 @@ $total = 0;
 $product = ProductData::getById($p["product_id"]);
 ?>
 <tr >
-	<td><?php echo $product->id; ?></td>
+	<td><?php echo $product->barcode; ?></td>
 	<td ><?php echo $p["q"]; ?></td>
 	<td><?php echo $product->unit; ?></td>
 	<td><?php echo $product->name; ?></td>

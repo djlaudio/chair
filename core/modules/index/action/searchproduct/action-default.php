@@ -23,7 +23,7 @@ $q= OperationData::getQYesF($product->id);
 	if($q>0):?>
 		
 	<tr class="<?php if($q<=$product->inventary_min){ echo "danger"; }?>">
-		<td style="width:80px;"><?php echo $product->id; ?></td>
+		<td style="width:80px;"><?php echo $product->barcode; ?></td>
 		<td><?php echo $product->name; ?></td>
 		<td><?php echo $product->unit; ?></td>
 		<td><b>₡<?php echo $product->price_out; ?></b></td>
