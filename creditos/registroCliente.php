@@ -46,6 +46,7 @@ $dateNow = date('Y-m-d H:i:s');
 
 
 if (empty($cedula)) {
+$sql="INSERT INTO person(name, lastName, lastName2, address1, phone1, phone2, kind, cedula, created_at, nameBusiness, email1) values ('$nombre','$apellido1','$apellido2','$direccion', '$telefono1', '$telefono2', '1', NULL,'$dateNow', '$nameBusiness', '$correo')" ;
 
 }
 
@@ -54,6 +55,7 @@ else
 
 {
 
+	$sql="INSERT INTO person(name, lastName, lastName2, address1, phone1, phone2, kind, cedula, created_at, nameBusiness, email1) values ('$nombre','$apellido1','$apellido2','$direccion', '$telefono1', '$telefono2', '1', '$cedula','$dateNow', '$nameBusiness', '$correo')" ;
 
 	}
 
