@@ -147,7 +147,7 @@ $total_iv=$("#total").val()- $("#discount").val();
 $product = ProductData::getById($error["product_id"]);
 ?>
 <tr class="danger">
-	<td><?php echo $product->id; ?></td>
+	<td><?php echo $product->barcode; ?></td>
 	<td><?php echo $product->name; ?></td>
 	<td><b><?php echo $error["message"]; ?></b></td>
 </tr>

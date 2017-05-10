@@ -138,6 +138,19 @@ $supertotal+= ($operation->saldoActual);
 <script>
 	$("#wellcome").hide();
 </script>
+
+<script>
+  $( function() {
+    $("#sd").datepicker({ dateFormat: 'dd/mm/yy' });
+  } );
+  </script>
+
+  <script>
+  $( function() {
+    $("#ed").datepicker({ dateFormat: 'dd/mm/yy' });
+  } );
+  </script>
+
 <div class="jumbotron">
 	<h2>Fecha Incorrectas</h2>
 	<p>Puede ser que no selecciono un rango de fechas, o el rango seleccionado es incorrecto.</p>

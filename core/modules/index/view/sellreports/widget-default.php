@@ -18,13 +18,13 @@ $clients = PersonData::getClients();
 
 <script>
   $( function() {
-    $("#sd").datepicker();
+    $("#sd").datepicker({ dateFormat: 'dd/mm/yy' });
   } );
   </script>
 
   <script>
   $( function() {
-    $("#ed").datepicker();
+    $("#ed").datepicker({ dateFormat: 'dd/mm/yy' });
   } );
   </script>
 
