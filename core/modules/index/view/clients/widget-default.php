@@ -31,6 +31,7 @@ $usersession = UserData::getById($user_id);
 			<th>Direccion</th>
 			<th>Email</th>
 			<th>Telefono</th>
+			<th>Telefono 2</th>
 			<th></th>
 			</thead>
 			<?php
@@ -42,6 +43,7 @@ $usersession = UserData::getById($user_id);
 				<td><?php echo $user->address1; ?></td>
 				<td><?php echo $user->email1; ?></td>
 				<td><?php echo $user->phone1; ?></td>
+				<td><?php echo $user->phone2; ?></td>
 				<td style="width:130px;">
 
 
