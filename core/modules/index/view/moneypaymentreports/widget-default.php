@@ -9,6 +9,26 @@ $clients = PersonData::getClients();
 						<form>
 						<input type="hidden" name="view" value="moneyreports">
 <div class="row">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<script>
+  $( function() {
+    $("#sd").datepicker({ dateFormat: 'yy-mm-dd' });
+  } );
+  </script>
+
+  <script>
+  $( function() {
+    $("#ed").datepicker({ dateFormat: 'yy-mm-dd' });
+  } );
+  </script>
+
+  
 <div class="col-md-3">
 
 <select name="client_id" class="form-control">
@@ -20,10 +40,10 @@ $clients = PersonData::getClients();
 
 </div>
 <div class="col-md-3">
-<input type="date" name="sd" value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
+<input type="date" name="sd" id="sd" value="<?php if(isset($_GET["sd"])){ echo $_GET["sd"]; }?>" class="form-control">
 </div>
 <div class="col-md-3">
-<input type="date" name="ed" value="<?php if(isset($_GET["ed"])){ echo $_GET["ed"]; }?>" class="form-control">
+<input type="date" name="ed" id="ed" value="<?php if(isset($_GET["ed"])){ echo $_GET["ed"]; }?>" class="form-control">
 </div>
 
 <div class="col-md-3">
@@ -155,6 +175,9 @@ $supertotal+= ($operation->cantidadAbono);
 <script>
 	$("#wellcome").hide();
 </script>
+
+
+
 <div class="jumbotron">
 	<h2>Fecha Incorrectas</h2>
 	<p>Puede ser que no selecciono un rango de fechas, o el rango seleccionado es incorrecto.</p>

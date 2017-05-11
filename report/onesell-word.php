@@ -182,7 +182,15 @@ $sell->iv  == 0 ? $d= "Con IV" : $d= "SIN IV";
                     <table>
                         <tr>
                             <td class="title">
+                            <?php if($sell->iv==1){?>
                                 <a href="//pdfcrowd.com/url_to_pdf/"><img src="logo-Fastness.png" style="width:100%; max-width:300px;"></a>
+                                <?php } 
+                                else
+{?>
+<a href="//pdfcrowd.com/url_to_pdf/"><img src="logo-Blanco.png" style="width:100%; max-width:300px;"></a>
+
+<?php }
+                                    ?>
                             </td>
 
                              <td>
