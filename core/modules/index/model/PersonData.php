@@ -45,6 +45,13 @@ class PersonData {
 		Executor::doit($sql);
 	}
 
+	public function update_clientWithoutCedula(){
+		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\",phone2=\"$this->phone2\",nameBusiness=\"$this->nameBusiness\" where id=$this->id";
+		Executor::doit($sql);
+	}
+
+
+
 	public function update_provider(){
 		$sql = "update ".self::$tablename." set name=\"$this->name\",email1=\"$this->email1\",address1=\"$this->address1\",lastname=\"$this->lastname\",phone1=\"$this->phone1\",phone2=\"$this->phone2\",nameBusiness=\"$this->nameBusiness\", cedula=\"$this->cedula\" where id=$this->id";
 		Executor::doit($sql);

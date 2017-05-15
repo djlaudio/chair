@@ -9,13 +9,22 @@ if(count($_POST)>0){
 	$user->phone1 = $_POST["phone1"];
 	$user->phone2 = $_POST["phone2"];
 
-$user->cedula = $_POST["cedula"];
-$user->nameBusiness = $_POST["nameBusiness"];
+	
+
+	$user->nameBusiness = $_POST["nameBusiness"];
 
 
 
 
+if (empty($_POST["cedula"]))
+	{
+		$user->update_clientWithoutCedula();
+	} else
+	{
 	$user->update_client();
+	}
+
+	
 
 
 

@@ -21,20 +21,20 @@
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Direccion*</label>
     <div class="col-md-6">
-      <input type="text" name="address1" value="<?php echo $user->address1;?>" class="form-control" required id="username" placeholder="Direccion">
+      <input type="text" name="address1" value="<?php echo $user->address1;?>" class="form-control" required id="address1" placeholder="Direccion">
     </div>
   </div>
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Email*</label>
     <div class="col-md-6">
-      <input type="text" name="email1" value="<?php echo $user->email1;?>" class="form-control" id="email" placeholder="Email">
+      <input type="text" name="email1" value="<?php echo $user->email1;?>" class="form-control" id="email1" placeholder="Email">
     </div>
   </div>
 
   <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Telefono</label>
     <div class="col-md-6">
-      <input type="text" name="phone1"  value="<?php echo $user->phone1;?>"  class="form-control" id="inputEmail1" placeholder="Telefono">
+      <input type="text" name="phone1"  value="<?php echo $user->phone1;?>"  class="form-control" id="phone1" placeholder="Telefono">
     </div>
   </div>
 
@@ -42,7 +42,7 @@
    <div class="form-group">
     <label for="inputEmail1" class="col-lg-2 control-label">Telefono 2</label>
     <div class="col-md-6">
-      <input type="text" name="phone2"  value="<?php echo $user->phone2;?>"  class="form-control" id="inputEmail1" placeholder="Telefono 2">
+      <input type="text" name="phone2"  value="<?php echo $user->phone2;?>"  class="form-control" id="phone2" placeholder="Telefono 2">
     </div>
   </div>
 
