@@ -111,7 +111,11 @@ $clients = PersonData::getClients();
 		<th>Tipo de pago</th>
 		<th>Fecha</th>
 	</thead>
-<?php foreach($operations as $operation):?>
+<?php foreach($operations as $operation):
+
+$sell = SellData::getById($operation->id2creditoAbono);
+
+?>
 
 	
 
@@ -124,7 +128,7 @@ $clients = PersonData::getClients();
 		<?php if($operation->idCreditoAbono!=null){
 					
 				
-                    echo($operation ->idCreditoAbono);   }?>
+                    echo($sell ->id2);   }?>
 
 		</td>
 
@@ -133,7 +137,7 @@ $clients = PersonData::getClients();
 		
  <?php
 
- $sell = SellData::getById($operation->id2creditoAbono);
+ 
 
   if($sell->person_id!=null){
                     $client = $sell->getPerson();
