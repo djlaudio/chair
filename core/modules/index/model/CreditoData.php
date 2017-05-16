@@ -120,6 +120,20 @@ public function getCreditSell(){ return SellData::getById($this->idSell);}
 
   }
 
+  public static function getAllPayedCreditByDateOp($start,$end,$op){
+  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='0' order by idCredito desc";
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new CreditoData());
+
+  }
+
+  public static function getAllPayedCreditBuyByDateOp($start,$end,$op){
+  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='1' order by idCredito desc";
+    $query = Executor::doit($sql);
+    return Model::many($query[0],new CreditoData());
+
+  }
+
   public static function getAllCreditByDateBCOp($clientid,$start,$end,$op){
  $sql = "select * from ".self::$tablename." where date(fechaCredito) >= \"$start\" and date(fechaCredito) <= \"$end\" and idClienteCredito=$clientid and cantidadCredito>montoPagado and termino_id>='137' and credito.esCompra='0' order by idCredito desc";
     $query = Executor::doit($sql);
