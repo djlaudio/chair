@@ -106,6 +106,7 @@ $clients = PersonData::getClients();
 		<th>Factura</th>
 		<th>Id</th>
 		<th>Cliente</th>
+		<th>Comentarios</th>
 		<th>Dinero</th>
 		<th>Saldo</th>
 		<th>Tipo de pago</th>
@@ -143,6 +144,7 @@ $sell = SellData::getById($operation->id2creditoAbono);
                     $client = $sell->getPerson();
                     echo($client->name." ".$client->lastname." - ".$client->nameBusiness);   }?>
                     </td>
+                    <td><?php echo ($operation->observacion); ?></td>
 		<td>₡ <?php echo number_format($operation->cantidadAbono,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->saldoCredito,2,'.',','); ?></td>
 		<td>
