@@ -3,7 +3,7 @@ class Database {
 	public static $db;
 	public static $con;
 	function Database(){
-		$this->user="fastness_ventas";$this->pass="ventas2016";$this->host="localhost";$this->ddbb="fastness_wtjjventas2016";
+		$this->user="wtjjventas2018";$this->pass="wtjjventas2018";$this->host="localhost";$this->ddbb="fastness_wtjjventas2016";
 	}
 
 	function connect(){
@@ -11,7 +11,7 @@ class Database {
 		return $con;
 	}
 
-	//$link=mysqli_connect("localhost","fastness_ventas","ventas2016","fastness_wtjjventas2016");
+	//$link=mysqli_connect("localhost","wtjjventas2018","wtjjventas2018","fastness_wtjjventas2016");
 
 	public static function getCon(){
 		if(self::$con==null && self::$db==null){
