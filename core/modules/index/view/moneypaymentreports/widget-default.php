@@ -133,7 +133,11 @@ $clients = PersonData::getClients();
 		
  <?php
 
- $sell = SellData::getById($operation->id2creditoAbono);
+ 
+ $credit= getAbonoCredit();
+ $sell = $credit -> getCreditSell();
+
+ 
 
   if($sell->person_id!=null){
                     $client = $sell->getPerson();

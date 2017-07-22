@@ -114,7 +114,10 @@ $clients = PersonData::getClients();
 	</thead>
 <?php foreach($operations as $operation):
 
-$sell = SellData::getById($operation->id2creditoAbono);
+// $sell = SellData::getById($operation->id2creditoAbono);
+$abono= new AbonoData();
+$credit= $abono->getAbonoCredit();
+ $sell = $credit -> getCreditSell();
 
 ?>
 

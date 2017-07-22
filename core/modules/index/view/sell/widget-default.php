@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<input type="hidden" name="view" value="sell">
-				<input type="text" id="product_code" name="product" class="form-control">
+				<input type="text" id="product_code" name="product"  class="form-control" autofocus>
 			</div>
 			<div class="col-md-3">
 			<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Buscar</button>
@@ -130,6 +130,23 @@ $total_iv=$("#total").val()- $("#discount").val();
 
     });
 });
+
+
+function testAttribute(element, attribute) {
+   var test = document.createElement(element);
+   if (attribute in test) {
+    return true;
+  }
+else 
+  return false;
+}
+
+window.onload = function() {
+  if (!testAttribute('input', 'autofocus'))
+  document.getElementById('product_code').focus(); 
+//for browser has no autofocus support, set focus to Text2.
+}
+
 
 
 </script>

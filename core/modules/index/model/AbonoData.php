@@ -25,8 +25,8 @@ class AbonoData {
 
 
 	public function add(){
-		$sql = "insert into abono (fechaAbono,cantidadAbono,idCreditoAbono,saldoCredito,idCobrador,porcComisionCobrador,diaPago, tipo_pago,observacion,idSistema, id2creditoAbono) ";
-		$sql .= "value (NOW(),$this->cantidadAbono,$this->idCreditoAbono,0,28,0,0,$this->tipo_pago,'Factura de Contado',0, $this->id2creditoAbono)";
+		$sql = "insert into abono (fechaAbono,cantidadAbono,idCreditoAbono,saldoCredito,idCobrador,porcComisionCobrador,diaPago, tipo_pago,observacion,idSistema) ";
+		$sql .= "value (NOW(),$this->cantidadAbono,$this->idCreditoAbono,0,28,0,0,$this->tipo_pago,'Factura de Contado',0)";
 		return Executor::doit($sql);
 	}
 
