@@ -54,16 +54,16 @@ $categories = CategoryData::getAll();
     </div>
   </div>
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Unidad*</label>
+    
     <div class="col-md-6">
-      <input type="text" name="unit" required class="form-control" id="unit" placeholder="Unidad del Producto">
+      <input type="hidden" name="unit" required class="form-control" id="unit" placeholder="Unidad del Producto">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="inputEmail1" class="col-lg-2 control-label">Presentacion</label>
+    
     <div class="col-md-6">
-      <input type="text" name="presentation" class="form-control" id="inputEmail1" placeholder="Presentacion del Producto">
+      <input type="hidden" name="presentation" class="form-control" id="inputEmail1" placeholder="Presentacion del Producto">
     </div>
   </div>
   <div class="form-group">
@@ -99,6 +99,27 @@ $categories = CategoryData::getAll();
             console.log(e.which);
         }
     })
+
+
+    
+
+
 });
+
+
+function testAttribute(element, attribute) {
+   var test = document.createElement(element);
+   if (attribute in test) {
+    return true;
+  }
+else 
+  return false;
+}
+
+window.onload = function() {
+  if (!testAttribute('input', 'autofocus'))
+  document.getElementById('product_code').focus(); 
+//for browser has no autofocus support, set focus to Text2.
+}
 
 </script>

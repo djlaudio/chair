@@ -24,7 +24,7 @@ $page = 1;
 if(isset($_GET["page"])){
 	$page=$_GET["page"];
 }
-$limit=10;
+$limit=10000;
 if(isset($_GET["limit"]) && $_GET["limit"]!="" && $_GET["limit"]!=$limit){
 	$limit=$_GET["limit"];
 }

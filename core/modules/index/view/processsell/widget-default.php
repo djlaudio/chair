@@ -9,12 +9,14 @@ if(isset($_SESSION["cart"])){
 			{
 
 				$num_succ = 0;
-		$process=false;
-		$errors = array();
+				$process=false;
+				$errors = array();
 
 
 				$error = array("","message"=>"No puede facturar mas de 8 lineas en una factura.");
 				$errors[count($errors)] = $error;
+
+				echo "<script type=\"text/javascript\">alert(\"No se pueden facturas mas de 10 productos a la vez\");</script>";  
 			}
 			else
 
