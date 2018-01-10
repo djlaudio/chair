@@ -231,6 +231,30 @@ echo $max_id;
 
   }
 
+  public static function getAllByDateOpIV($start,$end,$op, $iv){
+
+    $sql = "select * from ".self::$tablename." where date(created_at) >= \"$start\" and date(created_at) <= \"$end\" and operation_type_id=$op and iv=$iv order by created_at desc";
+
+      $query = Executor::doit($sql);
+
+      return Model::many($query[0],new SellData());
+
+  
+
+    }
+
+    public static function getAllByDateBCOpIV($clientid,$start,$end,$op, $iv){
+
+   $sql = "select * from ".self::$tablename." where date(created_at) >= \"$start\" and date(created_at) <= \"$end\" and person_id=$clientid  and operation_type_id=$op and iv=$iv order by created_at desc";
+
+      $query = Executor::doit($sql);
+
+      return Model::many($query[0],new SellData());
+
+  
+
+    }
+
   public static function getSaldoCliente($cedulaCliente){
 
     require 'connect_db.php';
