@@ -89,10 +89,10 @@ $clients = PersonData::getClients();
 			$operations = array();
 
 			if($_GET["client_id"]==""){
-			$operations = AbonoData::getAllByDateOp($_GET["sd"],$_GET["ed"],2);
+			$operations = AbonoData::getAllByDateOp($_GET["sd"],$_GET["ed"],1);
 			}
 			else{
-			$operations = AbonoData::getAllByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],2);
+			$operations = AbonoData::getAllByDateBCOp($_GET["client_id"],$_GET["sd"],$_GET["ed"],1);
 			} 
 
 
@@ -116,8 +116,8 @@ $clients = PersonData::getClients();
 
 // $sell = SellData::getById($operation->id2creditoAbono);
 $abono= new AbonoData();
-$credit= $abono->getAbonoCredit();
- $sell = $credit -> getCreditSell();
+// $credit= $abono->getAbonoCredit();
+//  $sell = $credit -> getCreditSell();
 
 ?>
 

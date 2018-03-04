@@ -106,12 +106,20 @@ $clients = PersonData::getClients();
 		<th>Factura</th>
 		<th>Id</th>
 		<th>Cliente</th>
+		<th>Comentarios</th>
 		<th>Dinero</th>
 		<th>Saldo</th>
 		<th>Tipo de pago</th>
 		<th>Fecha</th>
 	</thead>
-<?php foreach($operations as $operation):?>
+ <?php foreach($operations as $operation):
+
+ $sell = SellData::getById($operation->id2creditoAbono);
+ $abono= new AbonoData();
+// $credit= $abono->getAbonoCredit();
+//  $sell = $credit -> getCreditSell();
+
+?>
 
 	
 
@@ -124,18 +132,14 @@ $clients = PersonData::getClients();
 		<?php if($operation->idCreditoAbono!=null){
 					
 				
-                    echo($operation ->idCreditoAbono);   }?>
+                    echo($sell ->id2);   }?>
 
 		</td>
 
 		<td> <?php echo($operation ->idAbono); ?></td>
-		<td>
+		<td> 
 		
  <?php
-
- 
- $credit= getAbonoCredit();
- $sell = $credit -> getCreditSell();
 
  
 
@@ -143,6 +147,7 @@ $clients = PersonData::getClients();
                     $client = $sell->getPerson();
                     echo($client->name." ".$client->lastname." - ".$client->nameBusiness);   }?>
                     </td>
+                    <td><?php echo ($operation->observacion); ?></td>
 		<td>₡ <?php echo number_format($operation->cantidadAbono,2,'.',','); ?></td>
 		<td>₡ <?php echo number_format($operation->saldoCredito,2,'.',','); ?></td>
 		<td>
@@ -182,6 +187,7 @@ $supertotal+= ($operation->cantidadAbono);
 
 
 
+
 <div class="jumbotron">
 	<h2>Fecha Incorrectas</h2>
 	<p>Puede ser que no selecciono un rango de fechas, o el rango seleccionado es incorrecto.</p>
@@ -191,8 +197,6 @@ $supertotal+= ($operation->cantidadAbono);
 		<?php endif; ?>
 	</div>
 </div>
-
-
 
 <br><br><br><br>
 </section>

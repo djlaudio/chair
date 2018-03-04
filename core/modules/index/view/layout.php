@@ -172,7 +172,7 @@ if(isset($_SESSION["user_id"]) &&$_SESSION["user_id"]!=""):
 
           <li><a href="index.php?view=users"><i class="fa fa-users"></i> Usuarios </a></li>
 
-         
+           <li><a href="index.php?view=processHours"><i class="fa fa-users"></i> Entradas / Salidas </a></li>
 
         <?php endif;?>
 
